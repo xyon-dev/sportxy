@@ -1,29 +1,17 @@
-import { configRoster } from "./rosterConfig.js";
-import { getSchedule } from "./data/schedule.js";
-import { viewScheduleTemplate } from "./templates/schedule-temp.js";
-import { playerPool } from "./data/player-pool.js";
+import { configRoster } from "./functions/rosterConfig.js";
+import { getSchedule } from "./api/getSchedule.js";
+import { viewScheduleTemplate } from "./templates/nfl-schedule/schedule-temp.js";
+import { playerPool } from "./api/player-pool.js";
+import { chooseSiteSportDay } from "./functions/chooseSiteSportDay.js";
+
 
 // GLOBALS
 let PLAYER_POOL;
 const main = document.getElementById("main");
+chooseSiteSportDay();
 
-/**
- * submit sit select form : add click event listener
- * run home()
- */
-const siteSelectForm = document.getElementById("selectSiteForm");
-siteSelectForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  const form = selectSiteForm;
-  const siteSubmit = document.querySelector("#submit-select site");
-  const siteSelectFormData = new FormData(form, siteSubmit);
-  for (const [key] of siteSelectFormData) {
-    PLAYER_POOL = key;
-  }
-  home(PLAYER_POOL);
-});
 
-/**
+/*
  * in: sport (future), date (future)
  * print games selection form 
  * out: game schedule form - template
@@ -42,7 +30,6 @@ async function home(site){
     let type;
     values.length != 0 ? type = "f" : type = "a"; 
     configRoster(site, values, type);
-    //s; 
     // send values to rosterConfig - filtered | full
 });
 }

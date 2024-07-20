@@ -1,4 +1,4 @@
-export function gameForm(target, schedule){ 
+export function gameForm(schedule){ 
 // GLOBALS
 
 /* Generate Gm Template
@@ -21,7 +21,6 @@ export function gameForm(target, schedule){
   gms += `<!-- submit -->  
   <input type="submit" name="get-data" value="get data" onclick="" id="btn-get-data" class="btn-submit">
   </form>`;
-  //main.innerHTML = gms;
  
   return gms;
 }  

@@ -1,5 +1,5 @@
 //
-import { playerPool } from "./data/player-pool.js";
+import { playerPool } from "../data/player-pool.js";
 import { buildRosters } from "./build-rosters.js";
 //
 let rosters;

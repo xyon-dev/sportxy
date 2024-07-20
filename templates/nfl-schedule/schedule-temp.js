@@ -2,6 +2,6 @@ import { gameForm } from "./game-formxy.js";
 
 /** */
 export function viewScheduleTemplate(schedule){
-  const form = gameForm("x", schedule);
+  const form = gameForm(schedule);
   return form;
 }

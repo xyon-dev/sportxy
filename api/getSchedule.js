@@ -1,23 +1,33 @@
+import { GLOBALS } from "../store/globals.js";
+
+
 /*  in: date; sport (future)
  *  fetch game schedule
  *  out: array of games
  */ 
-export let schedule;
-export async function getSchedule(){
+export async function getSchedule(sport, type){
+  let schedule;
   //fetch schedule
   let body = {
-    "site": "dk"
+    site: GLOBALS.site
   }
   const headers = {
     "method": "POST",
-    "sport": "nfl",
-    "type": "dst",
+    "sport": sport,
+    "type": type,
     "body": JSON.stringify(body)
   }
   await fetch('http://localhost/sportsmoney/dfs/get-dk.php', { headers })
     .then((response) => response.json())
     .then((data) => {
-      schedule = data.toSpliced();
+      GLOBALS.schedule = data.toSpliced();
+     
     });
-  return schedule;
+  return GLOBALS.schedule;
 }
+
+/**
+ * ARCHIVE
+ */
+
+//export let schedule;
