@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<div id="main"> /*
+<form action="" name="formxy" id="formxy" method="post">
+  <div>
+    <label id="lbl-gm-1" for="gm-1" class=""><section>gm@gm</section></label>
+    <input id="input-gm-1" name="gm-1" type="checkbox"></input>
+  </div>
+  <div>
+    <label id="lbl-gm-2" for="gm-2" class=""><section>gm@gm</section></label>
+    <input id="input-gm-2" name="gm-2" type="checkbox"></input>
+  </div>
+  
+  <!-- submit -->  
+  <input type="submit" name="get-data" value="get data" onclick="" id="btn-get-data" class="btn-submit">  */
+</form>
+</div>
+
+
+<script>
+// GLOBALS
+const main = document.getElementById("main");
+let schedule = [{GmInfo: "TM1@TM2 2024-07-17 1500"},{GmInfo: "TM3@TM4 2024-07-17 1500" }];
+let formVals;
+
+//FUNCTIONS 
+
+/* Get shedule
+* in: date
+* fn: query api
+* out: schedule
+*/
+function getSchedule(date){
+// date: YYYY-MM-DD
+}
+
+
+
+
+/* Generate Gm Template
+* in: form data
+* fn: create object
+* out: form data as object -> fetch function
+*/
+function genGmTemplate(arr){
+  let gms = `<form action="" name="formxy" id="formxy" method="post">`;
+  for(let i=0; i<arr.length; i++){
+  let gmNum = i;
+  let gmInfoArr = arr[i]["GmInfo"].split(" ");
+  let gmInfo = gmInfoArr[0];
+  let template = `<div>
+    <label id="lbl-gm-${gmNum}" for="gm-${gmNum}" class=""><section>${gmInfo}</section></label>
+    <input id="input-gm-${gmNum}" name="gm-${gmNum}" type="checkbox"></input>
+  </div>`;
+  gms = gms + `${template}`;
+  }
+  gms += `<!-- submit -->  
+  <input type="submit" name="get-data" value="get data" onclick="" id="btn-get-data" class="btn-submit">
+  </form>`;
+  main.innerHTML = gms;
+}  
+genGmTemplate(schedule);
+
+
+// CONTROL
+/* Get form data
+* in: form data
+* fn: create object
+* out: form data as object -> fetch function
+*/
+  const btn = document.querySelector("#btn-get-data");
+  const form = document.querySelector('#formxy');
+
+  btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const values = [...formData.entries()];
+  formVals = values;
+  console.log(formVals);
+  });
+
+
+
+
+
+</script>
+</body>
+</html>
