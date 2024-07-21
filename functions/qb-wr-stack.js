@@ -93,8 +93,7 @@ function qbWrStackRoster(stack, rStacks,w, t, f, d){
 }
 export function qbWrStacks(stacks, rStacks, w, t, f, d){ 
   for(let i=0; i<stacks.length; i++){
-    console.log(stacks);
-    //qbWrStackRoster(stacks[i], rStacks,w, t, f, d);
+    qbWrStackRoster(stacks[i], rStacks,w, t, f, d);
   }
   return rosters;
 }

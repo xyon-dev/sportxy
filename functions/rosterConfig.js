@@ -1,44 +1,68 @@
 import { buildFilteredRosters } from "./build-filtered-roster.js";
 import { playerPool } from "../api/player-pool.js";
 import { playersListUnited } from "../templates/nfl-players/playersListUnited.js";
+import { GLOBALS } from "../store/globals.js";
+import { choosePlayersForRosters } from "../pages/choosePlayersForRosters.js";
 
-// let rosters; let siteName; let rosterFormat;
-let salaryCap;
-let players;
-let listRB=[];
-let listWR=[];
-let listQB=[];
-let listTE=[];
-let listDST=[];
+/**
+ * inputs: 
+ * - API (playerPool)
+ * - site name : string "dk" | "fd" | "yf" 
+ * - game info values : array[strings] 
+ * - roster type : string "filtered" | "all"
+ * output: playerViewTemplate - tabbed 
+ */
+
+//let rosterFormat = setRosterFormat(GLOBALS.site);
+let players; // all players
 
 // list building funcitons : adds player to postion list
 function addQB(player){
-  listQB.push(player);
+  GLOBALS.listQB.push(player);
 }
 function addRB(player){
-  listRB.push(player);
+  GLOBALS.listRB.push(player);
 }
 function addWR(player){
-  listWR.push(player);
+  GLOBALS.listWR.push(player);
 }
 function addTE(player){
-  listTE.push(player);
+  GLOBALS.listTE.push(player);
+}
+function buildFlexList(options){
+  if(options.length<1){
+    GLOBALS.listFLEX = [...GLOBALS.listRB, ...GLOBALS.listWR, ...GLOBALS.listTE];
+  }else{
+    for(let i=0; i<options.length; i++){
+    switch(options[i]){
+      case "RB":
+      GLOBALS.listFLEX.push(...GLOBALS.listRB);
+      break;
+      case "WR":
+      GLOBALS.listFLEX.push(...GLOBALS.listWR);
+      break;
+      case "TE":
+      GLOBALS.listFLEX.push(...GLOBALS.listTE);
+      break;
+      default:
+        console.log("ERROR: flex options not found"); 
+    } } } 
 }
 function addDST(player){
-  listDST.push(player);
+  GLOBALS.listDST.push(player);
 }  // end list building functions
 
 // set salary cap
 function setSalaryCap(site){
   switch(site){
     case "dk": 
-      salaryCap=50000;
+      GLOBALS.salaryCap=50000;
       break;
     default:
-      salaryCap="ERROR: system failure"
+      GLOBALS.salaryCap="ERROR: system failure"
   } 
 }
-function sortPlayerList(list){
+function sortPlayerList(){
   for (let i = 0; i < players.length; i++){
     switch(players[i]["position"]){
       case 'QB':
@@ -60,17 +84,20 @@ function sortPlayerList(list){
         console.log("error not found in position list");
       }
   }
-  console.log( listRB, listWR, listQB, listTE, listDST );
+  //console.log( "rb: ",listRB.length, "wr: ",listWR.length, "qb: ",listQB.length, "te: ", listTE.length, "dst: ", listDST.length );
 }
 
-// get players
-// send to template generator: player list United
-export async function configRoster(site, values, type){
+export async function configRoster(site, values, type, options){ 
  players = await playerPool(site, values, type);
+ GLOBALS.players = players; 
  sortPlayerList(players);
- 
- 
- // how to display players initially?
+ buildFlexList(options);
+ setSalaryCap(site);
+ choosePlayersForRosters();
+ /* How to display players initially? 
+ *  DraftKings style: all | ...positions
+ */
+
 }
 
 

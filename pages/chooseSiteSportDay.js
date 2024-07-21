@@ -2,7 +2,7 @@ import { main } from "../../sports-money-dfs/main.js"
 import { chooseSiteSportDayTemplate as template } from "../templates/chooseSiteSportDay-tmp.js"; // DOESNT WORK
 import { GLOBALS } from "../store/globals.js";
 import { getSchedule } from "../api/getSchedule.js";
-import { chooseTeamsForPlayersToPicks } from "./chooseTeamsForPlayersToPick.js";
+import { chooseTeamsForPlayersToPicks } from "../pages/chooseTeamsForPlayersToPick.js";
 /********* ABOUT ********************
  * actions: 
  * - inserts selectSiteForm into main - 7/19/24
@@ -24,10 +24,15 @@ export function chooseSiteSportDay(){
   const form = selectSiteForm;
   const siteSubmit = document.querySelector("#submit-select site");
   const siteSelectFormData = new FormData(form, siteSubmit);
-  // assign GLOBALS.site with user selected site
-    for (const [key] of siteSelectFormData) {
-      GLOBALS.site = key;
-      chooseTeamsForPlayersToPicks();
+  // assign GLOBALS.site with user selected site, and flex options
+    for (const [key, value] of siteSelectFormData) {
+      //rosterOptionsFormData[key]=value;
+      if(key == "site"){
+        GLOBALS.site = value;
+      }else{
+        GLOBALS.rosterOptions.push(value);
+      }
     }
+    chooseTeamsForPlayersToPicks();
 });
 }

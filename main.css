@@ -1,0 +1,26 @@
+.player-list--ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  list-style: none;
+  align-content: center;
+  align-items: center;
+}
+.player-list--li{
+  width: 18%;
+}
+.player-list--input{
+  margin-right: 1em;
+}
+.player-coun--ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300px;
+  justify-content: flex-start;
+}
+.player-coun--li{
+  margin-right: 15pxs;
+}
