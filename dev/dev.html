@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .SportCardBorder{
+      border: 2px solid green;
+    }
+  </style>
+  <nav id="app" class="app-menu--nav"><!-- menu item objects go here-->  </nav>
+  <form id="siteSelectForm">
+  <!-- Site and  -->
+  <label for="xSiteInitialsDKx" name="SiteCards">Draft Kings</label>
+  <input type="radio" name="SiteCards" id="xSiteInitialsDKx" value="dk">
+
+  <label for="xSiteInitialsFDx" name="SiteCards">Fan Duel</label>
+  <input type="radio" name="SiteCards" id="xSiteInitialsFDx" value="fd">
+
+  <label for="xSiteInitialsxYF" name="SiteCards">Yahoo</label>
+  <input type="radio" name="SiteCards" id="xSiteInitialsYFx" value="yf">
+  <div>
+    <img type="image" src="./images.png" alt="" id="nfl" class="sport-select--input SportCardBorder" >
+    <img type="image" src="../basketball.png" alt="" id="nba" class="sport-select--input" style="height: 225px; width: auto;">
+  </div>
+
+  <input type="submit" value="Submit" id="submit">
+</form>
+  <script>
+ const form = document.getElementById("siteSelectForm");
+ const nfl = document.getElementById("nfl");
+ const nba = document.getElementById("nba");
+
+ /*
+ * content loop will generate complete list then register() elements
+ * Classes will create event listener
+ */
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+//  const nba = document.getElementById("nba")
+
+ form.addEventListener('submit', function (e){
+    e.preventDefault();
+    let selectDataObject={
+      site:"",
+      sport:""
+    };
+    const f = form;
+    const sport = form.querySelector(".SportCardBorder");
+    const sportID = sport["id"];   
+    const submitter = document.getElementById(submit);
+    const Form = new FormData(form, submitter );
+    for(const value of Form.values()){
+      selectDataObject.site = value;
+    }
+    selectDataObject.sport = sportID; 
+    // call new App(selectDataObject)
+
+  /**
+   *form event populates class parameter
+   * sport event populates second parameter
+   *  Schedule class changes view
+   */
+ })
+ nfl.addEventListener('click', function(e){
+  e.preventDefault();
+  clearClass = document.querySelector(".SportCardBorder");
+  clearClass.classList.toggle("SportCardBorder");
+  this.classList.toggle("SportCardBorder");
+ })
+ nba.addEventListener('click', function(e){
+  e.preventDefault();
+  clearClass = document.querySelector(".SportCardBorder");
+  clearClass.classList.toggle("SportCardBorder"); 
+  this.classList.toggle("SportCardBorder");
+ })
+ // onclick="border('SportSelect-NFL')"
+  </script>
+</body>
+</html>

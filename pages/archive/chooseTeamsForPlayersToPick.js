@@ -1,7 +1,7 @@
-import { getSchedule } from "../api/getSchedule.js";
-import { viewScheduleTemplate } from "../templates/nfl-schedule/schedule-temp.js";
-import { GLOBALS } from "../store/globals.js";
-import { configRoster } from "../functions/rosterConfig.js";
+import { getSchedule } from "../../api/getSchedule.js";
+import { viewScheduleTemplate } from "../../templates/nfl-schedule/schedule-temp.js";
+import { GLOBALS } from "../../store/globals.js";
+import { configRoster } from "../../functions/rosterConfig.js";
 
 /* actions: 
  * - insert game schedule into main

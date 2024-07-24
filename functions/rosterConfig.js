@@ -2,7 +2,7 @@ import { buildFilteredRosters } from "./build-filtered-roster.js";
 import { playerPool } from "../api/player-pool.js";
 import { playersListUnited } from "../templates/nfl-players/playersListUnited.js";
 import { GLOBALS } from "../store/globals.js";
-import { choosePlayersForRosters } from "../pages/choosePlayersForRosters.js";
+import { choosePlayersForRosters } from "../pages/archive/choosePlayersForRosters.js";
 
 /**
  * inputs: 

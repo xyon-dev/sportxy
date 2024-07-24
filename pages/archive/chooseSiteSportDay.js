@@ -1,7 +1,7 @@
-import { main } from "../../sports-money-dfs/main.js"
-import { chooseSiteSportDayTemplate as template } from "../templates/chooseSiteSportDay-tmp.js"; // DOESNT WORK
-import { GLOBALS } from "../store/globals.js";
-import { getSchedule } from "../api/getSchedule.js";
+import { main } from "../../../sports-money-dfs/main.js"
+import { chooseSiteSportDayTemplate as template } from "../../templates/chooseSiteSportDay-tmp.js"; // DOESNT WORK
+import { GLOBALS } from "../../store/globals.js";
+import { getSchedule } from "../../api/getSchedule.js";
 import { chooseTeamsForPlayersToPicks } from "../pages/chooseTeamsForPlayersToPick.js";
 /********* ABOUT ********************
  * actions: 

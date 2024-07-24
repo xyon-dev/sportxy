@@ -1,5 +1,5 @@
-import { GLOBALS } from "../store/globals.js";
-import { playerListTemplateProvider } from "../templates/nfl-players/playerListPositions.js";
+import { GLOBALS } from "../../store/globals.js";
+import { playerListTemplateProvider } from "../../templates/nfl-players/playerListPositions.js";
 /**
  * actions: 
  * -receive player list
@@ -13,7 +13,12 @@ export function choosePlayersForRosters(){
   let main = document.getElementById("main");
   let template = playerListTemplateProvider("all");
   main.innerHTML = template;
-  // handle submit : submit index of player in GLOBALS.players
+  
+  
+  /**
+   * EVENT HANDLER: FORM SUBMIT
+   * submit index of player in GLOBALS.players
+   */
   const playerSelectForm = document.getElementById("playerSelectForm");
   playerSelectForm.addEventListener('submit', function(e){
   e.preventDefault();
@@ -22,6 +27,8 @@ export function choosePlayersForRosters(){
   const siteSelectFormData = new FormData(form, siteSubmit);
   // assign GLOBALS.site with user selected site, and flex options
     for (const [key, value] of siteSelectFormData) {
+      // how to alert when more players need
+      // send players to roster build
       console.log(key, value);
     }
     

@@ -11,7 +11,7 @@ function templatePlayerList(players, title){
     <li class="player-count--li" id="TE">TE: ${te}</li>
     <li class="player-count--li" id="DST">DST: ${dst}</li>
    </ul>
-   <div id="player-count-notice--div" onClick="playerCountNotice()"></div> 
+   <div id="player-count-notice--div"></div> 
    <form id="playerSelectForm" name="playerSelectForm" method="post">`;
   let playerTemp = ``;
   for(let i=0; i<players.length; i++){
