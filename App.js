@@ -1,20 +1,25 @@
+import { GameSchedule } from "./classes/GameSchedule.js";
+import { siteSelectForm } from "./classes/SiteSelectForm.js";
+import { SITES } from "./store/globals.js";
+
 export class App{
   constructor(){
 
   }
-  temp(){
-    return ``;
+  start(){ // viewSiteSelectForm
+    let site = new siteSelectForm(SITES);
+    site.temp("App"); 
+    site.register();
   }
-  viewSiteSelectForm(){
-    //
+ async GameSelect(data){ 
+    let schedule = new GameSchedule(data.site, data.sport)
+    await schedule.temp();
+    schedule.register();
   }
-  viewGameSelectForm(){
-    //
+  PlayerSelect(games){
+    console.log(games);
   }
-  viewPlayerSelectForm(){
-    //
-  }
-  viewRosterSelectForm(){
+  RosterSelect(){
     //
   }
 }

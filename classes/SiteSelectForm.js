@@ -1,40 +1,57 @@
-import { Card } from "./Card.js";
-
+import { App } from "../main.js";
+import { SiteCards } from "./SiteCards.js";
+import { SportCards } from "./SportCards.js";
+import { SPORTS } from "../store/globals.js";
+import { GLOBALS } from "../store/globals.js";
+/**
+ * inserts form for site slection and sport selection
+ * in: site cards component, sports cards component
+ * out: form template
+ * action: calls game schedule, sets: GLOBAL.site, GLOBAL.sport 
+ */
 export class siteSelectForm {
   #sites;
   constructor(sites){
     this.#sites = sites;
   }
-  temp(){
-      let cardTemp = ``
-      for(i=0; i<this.#sites; i++){
-        let newCard = new Card(this.#sites[i]);
-        newCardTemp = newCard.temp();
-        cardTemp += newCardTemp;
-      }
-      return `
-      <form id="selectSiteForm">
-        <div>${cardTemp}</div>
-        <input type ="submit" name="site-submit" id="submit-site-select">
-      </form>
+  temp(elemID){ 
+      const containerID = "SportsCardsContainer"
+      let sportsCardSection = new SportCards(SPORTS, containerID)
+      const siteCards = new SiteCards;
+      const siteCardsTemplate = siteCards.temp();
+      const targetElement = document.getElementById(elemID);
+      targetElement.innerHTML = `
+        <form id="selectSiteForm">
+          <div class="site-card-container">${siteCardsTemplate}</div>
+          <div id="SportsCardsContainer" class="sports-card-container"></div>
+          <div class="site-select-submit-container">
+          <input type ="submit" name="site-submit" id="submit-slect" class="site-select-form-submit">
+          </div>
+        </form>
       `;
+      // add cards to DOM
+      sportsCardSection.temp();
+      sportsCardSection.register();
   }
   register(){
-    const siteSelectForm = document.getElementById("selectSiteForm");
-    siteSelectForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const form = selectSiteForm;
-    const siteSubmit = document.querySelector("#submit-select site");
-    const siteSelectFormData = new FormData(form, siteSubmit);
-    // assign GLOBALS.site with user selected site, and flex options
-      for (const [key, value] of siteSelectFormData) {
-        //rosterOptionsFormData[key]=value;
-        if(key == "site"){
-          GLOBALS.site = value;
-        }else{
-          GLOBALS.rosterOptions.push(value);
-        }
-      }  
+    const SelectForm = document.getElementById("selectSiteForm");
+    SelectForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      let selectDataObject={
+        site:"",
+        sport:""
+      };
+      const sport = SelectForm.querySelector(".SportCardBorder");
+      const sportID = sport["id"];   
+      const submitter = document.getElementById("submit-site-select");
+      const formData = new FormData(SelectForm, submitter);
+      for(const value of formData.values()){
+        selectDataObject.site = value;
+      }
+      selectDataObject.sport = sportID; 
+      GLOBALS.site = selectDataObject.site;
+      GLOBALS.sport = selectDataObject.sport;
+      App.GameSelect(selectDataObject);
     });    
   }
 }

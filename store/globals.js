@@ -19,6 +19,40 @@ export let GLOBALS = {
     dst:0
   }
 };
+export const SITES = [
+  {
+    name:"draft kings",
+    initial: "dk"
+  },
+  {
+    name: "fan duel",
+    initial: "fd"
+  },
+  {
+    name: "yahoo fantasy",
+    initial: "yf"
+  }
+]
+export const SPORTS = [
+  {
+    name: "nfl",
+    img: "./img/nfl.png",
+    classList: "sport-select--input SportCardBorder",
+    style: "height: 100px; width: auto;"
+  },
+  {
+    name: "mlb",
+    img: "./img/mlb.jpeg",
+    classList: "sport-select--input",
+    style: "height: 100px; width: auto;"
+  },
+  {
+    name: "nba",
+    img: "./img/nba.png",
+    classList: "sport-select--input",
+    style: "height: 100px; width: auto;"
+  },
+]
 export let ROSTERS = [];
 export const ROSTER_TEST ={ 
     q:{
