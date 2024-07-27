@@ -11,14 +11,14 @@
 <div class="gameContainer">
   <form action="" class="gameOptionForm" name="gameOptionForm" id="gameOptions">
     <div class="gameOption">
-      <label for="AZ">
-        <input type="checkbox" value="AZ" name="AZ">
+      <label for="Arz">
+        <input type="checkbox" value="AZ" name="Arz">
         <p>AZ</p>
       </label>
       <p>@</p>
-      <label for="AZ">
+      <label for="Buffalo">
         <p>BUF</p>
-        <input type="checkbox" value="AZ" name="AZ">
+        <input type="checkbox" value="BUF" name="Buffalo">
       </label>
     </div>
     <div class="game-option-submit-container" style="width: 100%; text-align: center;">
@@ -26,7 +26,19 @@
     </div>
   </form>
 </div>
+<script>
+const form = document.getElementById("gameOptions");
+form.addEventListener("submit", function (e){
+const submit = document.getElementById("game-submit");
+  e.preventDefault();
+  data =  new FormData(form, submit);
+  for(const [key, value] of data.entries()){
+    console.log(key, value);
+  }
+})
 
+
+</script>
 <!--
 <div class="gameOption">
   <label for="AZ">
@@ -215,18 +227,5 @@
     <input type="checkbox" value="AZ" name="AZ">
   </label>
 </div> -->
-
-
-<script>
-let str = "buf@az";
-let index = str.indexOf("@");
-let visitor = str.substr(0, index); 
-let home = str.substr(index+1)
-console.log(index, visitor,"@", home);
-
-
-
-
-</script>
 </body>
 </html>

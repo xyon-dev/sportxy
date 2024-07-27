@@ -1,7 +1,8 @@
 import { GLOBALS } from "../../store/globals.js";
 
 
-function templatePlayerList(players, title){
+export function templatePlayerList(players, title){
+  
   let playerList = `
    <h2 class="player-list-title--h2">${title}</h2>
    <ul class="player-count--ul">

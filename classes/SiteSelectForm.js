@@ -25,7 +25,7 @@ export class siteSelectForm {
           <div class="site-card-container">${siteCardsTemplate}</div>
           <div id="SportsCardsContainer" class="sports-card-container"></div>
           <div class="site-select-submit-container">
-          <input type ="submit" name="site-submit" id="submit-slect" class="site-select-form-submit">
+          <input type ="submit" id="submit-site-select" class="site-select-form-submit" >
           </div>
         </form>
       `;
@@ -48,6 +48,7 @@ export class siteSelectForm {
       for(const value of formData.values()){
         selectDataObject.site = value;
       }
+  
       selectDataObject.sport = sportID; 
       GLOBALS.site = selectDataObject.site;
       GLOBALS.sport = selectDataObject.sport;

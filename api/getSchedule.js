@@ -16,7 +16,7 @@ export async function getSchedule(site, sport, type){
     "type": type,
     "body": JSON.stringify(body)
   }
-  if(site == "draft kings"){
+  if(site == "dk"){
   await fetch('http://localhost/sportxy/api/backend/get-dk.php', { headers })
     .then((response) => response.json())
     .then((data) => {

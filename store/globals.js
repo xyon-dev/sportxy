@@ -12,13 +12,14 @@ export let GLOBALS = {
   listFLEX: [],
   listDST: [],
   playerCount:{
-    qb:0,
-    rb:0,
-    wr:0,
-    te:0,
-    dst:0
+    QB:0,
+    RB:0,
+    WR:0,
+    TE:0,
+    DST:0
   }
 };
+
 export const SITES = [
   {
     name:"draft kings",

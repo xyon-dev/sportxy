@@ -131,3 +131,6 @@ border-radius: 20px;
   align-items: center;
   justify-content: center;
 }
+.player-list--th, .player-list--td{
+  width: 20px;
+}

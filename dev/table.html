@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th></th>
+      <th>pos</th>
+      <th>name</th>
+      <th>team</th>
+      <th>game</th>
+      <th>f.ppg</th>
+      <th>salary</th>
+    </tr>
+    <tr>
+      <td class="player-list--input">
+        <label for="${this.#name}">
+          <input type="checkbox" id="player-${this.#id}" name="${this.#name}" value="${this.#id}">
+        </label>
+      </td>
+      <td>${this.#position}</td>
+      <td>${this.#name}</td>
+      <td>${this.#TeamAbbrev}</td>
+      <td>${gameInfo[0]}</td>
+      <td>${this.#AvgPointsPerGame}</td>
+      <td>${this.#salary}</td>
+    </tr>
+  </table>
+</body>
+</html>

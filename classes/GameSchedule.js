@@ -28,8 +28,8 @@ export class GameSchedule{
       let games = [];
       for(const key of formData.keys()){
         games.push(key);
-        App.PlayerSelect(games);
       }
+      App.PlayerSelect(games);
     });
   }
 }
