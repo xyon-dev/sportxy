@@ -61,7 +61,7 @@ function sumSalarys(roster){
 }
 // build roster
 // loop through arrays : build object push to rosters
-function qbWrStackRoster(stack, rStacks,w, t, f, d){
+function qbWrStackRoster(stack, rStacks, w, t, f, d){
   let wr = w;
   let excludedList = spliceExcluded(wr, stack.w.id);
   buildWrPairsTwo(excludedList, stack.w.id);

@@ -9,7 +9,8 @@ export class Player2 {
   #name;
   #position;
   #salary;
-  constructor(player){
+  #index;
+  constructor(player, index){
     this.#player = player;
     this.#AvgPointsPerGame = this.#player.AvgPointsPerGame;
     this.#GameInfo = this.#player.GameInfo
@@ -18,14 +19,15 @@ export class Player2 {
     this.#name = this.#player.name;
     this.#position = this.#player.position;
     this.#salary = this.#player.salary;
+    this.#index = index;
   }
   temp(){
     // let playerName = player.name.replace(" ","-");
     let gameInfo = this.#GameInfo.split(" ");
-    return `
+    return `<tr>
       <td class="player-list--input player-list--td">
         <label for="${this.#name}">
-          <input type="checkbox" id="player-${this.#id}" name="${this.#name}" value="${this.#id}">
+          <input type="checkbox" id="player-${this.#id}" name="${this.#name}" value="${this.#index}">
         </label>
       </td>
       <td class="player-list--td">${this.#position}</td>
@@ -34,7 +36,7 @@ export class Player2 {
       <td class="player-list--td">${gameInfo[0]}</td>
       <td class="player-list--td">${this.#AvgPointsPerGame}</td>
       <td class="player-list--td">${this.#salary}</td>
-    `;
+    </tr>`;
   }
   register = () => {
     const pos = this.#position;

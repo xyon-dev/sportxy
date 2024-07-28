@@ -1,5 +1,5 @@
 import { GLOBALS } from "../store/globals.js";
-import { qbWrStacks } from "./qb-wr-stack.js";
+import { qbWrStacks } from "./stack-loop.js";
 
 /**
  *  AvgPointsPerGame: "32",

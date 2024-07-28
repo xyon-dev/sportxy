@@ -19,7 +19,6 @@ export let GLOBALS = {
     DST:0
   }
 };
-
 export const SITES = [
   {
     name:"draft kings",
@@ -33,7 +32,7 @@ export const SITES = [
     name: "yahoo fantasy",
     initial: "yf"
   }
-]
+];
 export const SPORTS = [
   {
     name: "nfl",
@@ -53,7 +52,8 @@ export const SPORTS = [
     classList: "sport-select--input",
     style: "height: 100px; width: auto;"
   },
-]
+];
+export const FILTERED_PLAYERS = [];
 export let ROSTERS = [];
 export const ROSTER_TEST ={ 
     q:{
@@ -398,4 +398,4 @@ export const ROSTER_TEST ={
       : 
       "0000-00-00 00:00:00"
     }
-  }
+  };

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>roster</title>
+  <div id="rosters"></div>
+</head>
+<body>
+
+
+<script>
+const rosterDiv = document.getElementById("rosters");
+const rosters = [
+  {
+dst:{ 
+  AvgPointsPerGame: "7",
+  GameInfo: "KC@MIN 10/08/2023 04:25PM ET",
+  TeamAbbrev: "MIN",
+  createdAt: "0000-00-00 00:00:00",
+  id: "684",
+  name: "Vikings",
+  nameID: "Vikings  (30043199)",
+  playerID: "30043199",
+  position: "DST",
+  rosterPos: "DST",
+  salary: "2500",
+  updatedAt: "0000-00-00 00:00:00"
+},
+flex:{
+AvgPointsPerGame
+: 
+"11",
+GameInfo
+: 
+"KC@MIN 10/08/2023 04:25PM ET",
+TeamAbbrev
+: 
+"MIN",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"85",
+name
+: 
+"Jordan Addison",
+nameID
+: 
+"Jordan Addison (30042410)",
+playerID
+: 
+"30042410",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+qb:{ 
+AvgPointsPerGame
+: 
+"18",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"70",
+name
+: 
+"Matthew Stafford",
+nameID
+: 
+"Matthew Stafford (30041948)",
+playerID
+: 
+"30041948",
+position
+: 
+"QB",
+rosterPos
+: 
+"QB",
+salary
+: 
+"5600",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+rb1:{ 
+AvgPointsPerGame
+: 
+"23",
+GameInfo
+: 
+"NYG@MIA 10/08/2023 01:00PM ET",
+TeamAbbrev
+: 
+"MIA",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"46",
+name
+: 
+"Raheem Mostert",
+nameID
+: 
+"Raheem Mostert (30042048)",
+playerID
+: 
+"30042048",
+position
+: 
+"RB",
+rosterPos
+: 
+"RB/FLEX",
+salary
+: 
+"6200",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+rb2:{ 
+AvgPointsPerGame
+: 
+"29",
+GameInfo
+: 
+"NYG@MIA 10/08/2023 01:00PM ET",
+TeamAbbrev
+: 
+"MIA",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"49",
+name
+: 
+"De'Von Achane",
+nameID
+: 
+"De'Von Achane (30042050)",
+playerID
+: 
+"30042050",
+position
+: 
+"RB",
+rosterPos
+: 
+"RB/FLEX",
+salary
+: 
+"6100",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+salary: 49700,
+te:{
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"KC@MIN 10/08/2023 04:25PM ET",
+TeamAbbrev
+: 
+"KC",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"18",
+name
+: 
+"Travis Kelce",
+nameID
+: 
+"Travis Kelce (30042876)",
+playerID
+: 
+"30042876",
+position
+: 
+"TE",
+rosterPos
+: 
+"TE/FLEX",
+salary
+: 
+"7600",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr1:{ 
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"84",
+name
+: 
+"Tutu Atwell",
+nameID
+: 
+"Tutu Atwell (30042412)",
+playerID
+: 
+"30042412",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr2:{ 
+AvgPointsPerGame
+: 
+"13",
+GameInfo
+: 
+"JAX@BUF 10/08/2023 09:30AM ET",
+TeamAbbrev
+: 
+"BUF",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"56",
+name
+: 
+"Gabe Davis",
+nameID
+: 
+"Gabe Davis (30042392)",
+playerID
+: 
+"30042392",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5800",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr3:{ 
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"84",
+name
+: 
+"Tutu Atwell",
+nameID
+: 
+"Tutu Atwell (30042412)",
+playerID
+: 
+"30042412",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+}
+},
+{
+dst:{ 
+  AvgPointsPerGame: "70000",
+  GameInfo: "KC@MIN 10/08/2023 04:25PM ET",
+  TeamAbbrev: "MIN",
+  createdAt: "0000-00-00 00:00:00",
+  id: "684",
+  name: "Vikings",
+  nameID: "Vikings  (30043199)",
+  playerID: "30043199",
+  position: "DST",
+  rosterPos: "DST",
+  salary: "2500",
+  updatedAt: "0000-00-00 00:00:00"
+},
+flex:{
+AvgPointsPerGame
+: 
+"11",
+GameInfo
+: 
+"KC@MIN 10/08/2023 04:25PM ET",
+TeamAbbrev
+: 
+"MIN",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"85",
+name
+: 
+"Jordan Addison",
+nameID
+: 
+"Jordan Addison (30042410)",
+playerID
+: 
+"30042410",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+qb:{ 
+AvgPointsPerGame
+: 
+"18",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"70",
+name
+: 
+"Matthew Stafford",
+nameID
+: 
+"Matthew Stafford (30041948)",
+playerID
+: 
+"30041948",
+position
+: 
+"QB",
+rosterPos
+: 
+"QB",
+salary
+: 
+"5600",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+rb1:{ 
+AvgPointsPerGame
+: 
+"23",
+GameInfo
+: 
+"NYG@MIA 10/08/2023 01:00PM ET",
+TeamAbbrev
+: 
+"MIA",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"46",
+name
+: 
+"Raheem Mostert",
+nameID
+: 
+"Raheem Mostert (30042048)",
+playerID
+: 
+"30042048",
+position
+: 
+"RB",
+rosterPos
+: 
+"RB/FLEX",
+salary
+: 
+"6200",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+rb2:{ 
+AvgPointsPerGame
+: 
+"29",
+GameInfo
+: 
+"NYG@MIA 10/08/2023 01:00PM ET",
+TeamAbbrev
+: 
+"MIA",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"49",
+name
+: 
+"De'Von Achane",
+nameID
+: 
+"De'Von Achane (30042050)",
+playerID
+: 
+"30042050",
+position
+: 
+"RB",
+rosterPos
+: 
+"RB/FLEX",
+salary
+: 
+"6100",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+salary: 49700,
+te:{
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"KC@MIN 10/08/2023 04:25PM ET",
+TeamAbbrev
+: 
+"KC",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"18",
+name
+: 
+"Travis Kelce",
+nameID
+: 
+"Travis Kelce (30042876)",
+playerID
+: 
+"30042876",
+position
+: 
+"TE",
+rosterPos
+: 
+"TE/FLEX",
+salary
+: 
+"7600",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr1:{ 
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"84",
+name
+: 
+"Tutu Atwell",
+nameID
+: 
+"Tutu Atwell (30042412)",
+playerID
+: 
+"30042412",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr2:{ 
+AvgPointsPerGame
+: 
+"13",
+GameInfo
+: 
+"JAX@BUF 10/08/2023 09:30AM ET",
+TeamAbbrev
+: 
+"BUF",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"56",
+name
+: 
+"Gabe Davis",
+nameID
+: 
+"Gabe Davis (30042392)",
+playerID
+: 
+"30042392",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5800",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+},
+wr3:{ 
+AvgPointsPerGame
+: 
+"15",
+GameInfo
+: 
+"PHI@LAR 10/08/2023 04:05PM ET",
+TeamAbbrev
+: 
+"LAR",
+createdAt
+: 
+"0000-00-00 00:00:00",
+id
+: 
+"84",
+name
+: 
+"Tutu Atwell",
+nameID
+: 
+"Tutu Atwell (30042412)",
+playerID
+: 
+"30042412",
+position
+: 
+"WR",
+rosterPos
+: 
+"WR/FLEX",
+salary
+: 
+"5300",
+updatedAt
+: 
+"0000-00-00 00:00:00",
+}
+},
+];
+function loop(roster){
+ let playersTemplate = `  
+ <table>
+  <tr> 
+    <th>pos</th>
+    <th>name</th>
+    <th>team</th>
+    <th>game</th>
+    <th>fppg</th>
+    <th>salary</th>
+  </tr>
+`
+  for(i=0; i<rosters.length; i++){
+   const roster = rosters[i]
+   for(const position in roster){
+    if(position !== "salary"){
+      let player = roster[position];
+      temp= `<tr>
+      <td name="position">${player.position}</td>
+      <td name="name">${player.name}</td>
+      <td name="TeamAbbrev">${player.TeamAbbrev}</td>
+      <td name="GameInfo">${player.GameInfo}</td>
+      <td name="fppg">${player.AvgPointsPerGame}</td>
+      <td name="salary">${player.salary}</td>
+      </tr>
+      `
+    playersTemplate += temp;
+    }
+   }
+   playersTemplate += `<tr>${rosters[i]["salary"]}</tr>`
+  }
+  playersTemplate += `</table>`;
+  
+  return playersTemplate;
+}
+    //console.log(rosters[0]["qb"]);
+const rosterTemplate = loop(roster);
+rosterDiv.innerHTML = rosterTemplate;
+
+// for(let i=0; i<roster.length; i++){
+//     player = [roster[i]];
+//     temp= `<tr>
+//     <td name="position">${player[i]["qb"]["position"]}</td>
+//     <td name="name">${player[i].name}</td>
+//     <td name="TeamAbbrev">${player[i].TeamAbbrev}</td>
+//     <td name="GameInfo">${player[i].GameInfo}</td>
+//     <td name="fppg">${player[i].AvgPointsPerGame}</td>
+//     <td name="salary">${player[i].salary}</td>
+//     </tr>
+//     `
+//     playersTemplate += temp;
+//   };
+</script>
+</body>
+</html>

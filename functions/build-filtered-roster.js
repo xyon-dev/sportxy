@@ -1,4 +1,5 @@
-import { qbWrStacks } from "./qb-wr-stack.js";
+import { qbWrStacks } from "./stack-loop.js";
+import { qbWrStacksOptimized } from "./optimized-roster/stack-loop.js";
 // const filteredPlayerPool = [
 // //  CMAC rb1
 //   {
@@ -648,8 +649,8 @@ let d = [];
 let f = [];
 let qwStacks = [];
 let rbStacks = [];
-let wrStacksThree = [];
-// +++
+
+// +++ 
 function filterPosition(pos, data){
  
   switch(pos){
@@ -700,7 +701,8 @@ function buildQbWrStacks(qb, wr){
   }
   //console.log(qwStacks);
 }
-// +++
+/* +++ 
+ADD TO VER 2.0: let wrStacksThree = [];
 function buildWrPairsThree(list){
   for(let i=0; i<=list.length; i++){
     for(let j=i+1; j<=list.length-1; j++){
@@ -715,19 +717,23 @@ function buildWrPairsThree(list){
   }
   //console.log(wrStacksThree);
 }
-// +++
+*/
 
 // +
-export function buildFilteredRosters(filteredPlayerPool){
+export function buildFilteredRosters(filteredPlayerPool, type){
   
-  buildPositionLists(filteredPlayerPool); 
-  //console.log(w);
+  buildPositionLists(filteredPlayerPool); // sort players into position variables
   buildRbStacks(r);
   buildQbWrStacks(q,w);
   //buildWrPairsThree(w)
   //buildWrPairsTwo(w, qwStacks);
-  let rosters = qbWrStacks(qwStacks, rbStacks, w, t, f, d); // rosters built here
-  console.log(rosters);
+  if(type=="optimized"){
+    let optimizedRosters = qbWrStacksOptimized(qwStacks, rbStacks,w,t,d);
+    return(optimizedRosters);
+  }else{
+    let rosters = qbWrStacks(qwStacks, rbStacks, w, t, f, d); // rosters built here
+    return(rosters);
+  }
   //return rosters;
 }
 //buildFilteredRosters();
