@@ -1,6 +1,7 @@
 export let GLOBALS = {
   site: "",
   sport:"",
+  cart: 0,
   schedule: null,
   salaryCap: 0,
   rosterOptions: [],
@@ -399,3 +400,6 @@ export const ROSTER_TEST ={
       "0000-00-00 00:00:00"
     }
   };
+export let SAVED_ROSTERS = {
+  rosters: []
+};

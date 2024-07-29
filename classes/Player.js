@@ -1,6 +1,6 @@
 import { GLOBALS } from "../store/globals.js";
 
-export class Player {
+export class Player{
   #player;
   #AvgPointsPerGame;
   #GameInfo;
@@ -9,7 +9,8 @@ export class Player {
   #name;
   #position;
   #salary;
-  constructor(player){
+  #index;
+  constructor(player, index){
     this.#player = player;
     this.#AvgPointsPerGame = this.#player.AvgPointsPerGame;
     this.#GameInfo = this.#player.GameInfo
@@ -18,24 +19,24 @@ export class Player {
     this.#name = this.#player.name;
     this.#position = this.#player.position;
     this.#salary = this.#player.salary;
+    this.#index = index;
   }
   temp(){
     // let playerName = player.name.replace(" ","-");
     let gameInfo = this.#GameInfo.split(" ");
-    return `<ul id="player-${this.#id}--ul" class="player-list--ul">
-    <li class="player-list--input">
-      <label for="${this.#name}">
-        <input type="checkbox" id="player-${this.#id}" name="${this.#name}" value="${this.#id}">
-      </label>
-    </li>
-    <li class="player-list--li">${this.#position }</li>
-    <li class="player-list--li">${this.#name }</li>
-    <li class="player-list--li">${this.#TeamAbbrev }</li>
-    <li class="player-list--li">${gameInfo[0] }</li>
-    <li class="player-list--li">${this.#AvgPointsPerGame }</li>
-    <li class="player-list--li">${this.#salary }</li>
-    </ul>
-    `;
+    return `<tr>
+      <td class="player-list--input player-list--td">
+        <label for="${this.#name}">
+          <input type="checkbox" id="player-${this.#id}" name="${this.#name}" value="${this.#index}">
+        </label>
+      </td>
+      <td class="player-list--td">${this.#position}</td>
+      <td class="player-list--td">${this.#name}</td>
+      <td class="player-list--td">${this.#TeamAbbrev}</td>
+      <td class="player-list--td">${gameInfo[0]}</td>
+      <td class="player-list--td">${this.#AvgPointsPerGame}</td>
+      <td class="player-list--td">${this.#salary}</td>
+    </tr>`;
   }
   register = () => {
     const pos = this.#position;
@@ -44,8 +45,7 @@ export class Player {
       const posUpdate = document.getElementById(pos)// api: send comment to db, on verification, append to comments(first child)
       // if checked add 1 else sub 1
       el.checked ? GLOBALS.playerCount[pos]++ : GLOBALS.playerCount[pos]--;
-      console.log(pos,":",GLOBALS.playerCount[pos]);
-      posUpdate.innerHTML = `${pos}: ${GLOBALS.playerCount[pos]}`;
+      posUpdate.innerHTML = `${GLOBALS.playerCount[pos]}`;
     }); 
   }
 }

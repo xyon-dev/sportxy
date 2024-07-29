@@ -1,8 +1,7 @@
 import { GameSchedule } from "./classes/GameSchedule.js";
 import { siteSelectForm } from "./classes/SiteSelectForm.js";
+import { FILTERED_PLAYERS, SAVED_ROSTERS, SITES } from "./store/globals.js";
 import { Players } from "./classes/Players.js";
-import { FILTERED_PLAYERS, SITES } from "./store/globals.js";
-import { Players2 } from "./classes/Players2.js";
 import { GLOBALS } from "./store/globals.js";
 import { buildFilteredRosters } from "./functions/build-filtered-roster.js";
 import { Roster } from "./classes/Roster.js";
@@ -21,7 +20,7 @@ export class App{
     schedule.register();
   }
   async PlayerSelect(games){ 
-    let playerList = new Players2(games);
+    let playerList = new Players(games);
     await playerList.temp();
     playerList.register();
   }
@@ -42,27 +41,21 @@ export class App{
       // stack loop : IF stacks > 0 : make 2-wr stacks (excluding stacked wr)
 
     let rosters = buildFilteredRosters(FILTERED_PLAYERS, "optimized"); // array of objects
-    const table = document.createElement("table");
-    table.setAttribute("id","rosterTable");
-    table.innerHTML = `
-        <tr> 
-          <th>pos</th>
-          <th>name</th>
-          <th>team</th>
-          <th>game</th>
-          <th>fppg</th>
-          <th>salary</th>
-        </tr>`;
-        console.log(table);
+    const container = document.createElement("div");
+    container.setAttribute("id","rosterTable");
     const app = document.getElementById("App");
     app.innerHTML = ``;
-    app.append(table);
+    app.append(container);
     for(let i=0; i<rosters.length; i++){
       const newRoster = new Roster(`roster-${i}`,rosters[i]);
       newRoster.temp();
-      newRoster.test();
+      newRoster.register(rosters[i]);
     }
-    
-    
+  }
+  register(){
+    const queue = document.getElementById("downloads");
+    queue.addEventListener('click',function(){
+      GLOBALS.cart !== 0 ? console.log(SAVED_ROSTERS) : alert("error: no rosters in queue yet");
+    })
   }
 }
