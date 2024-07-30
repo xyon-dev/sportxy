@@ -1,0 +1,20 @@
+1.
+rosters with same total salary need to be compared 
+to make sure it isn't a duplicate roster with payers 
+in a different order
+#filter for salary
+#compare new array values. WR is the only position needing comparison
+#WR1 shouldnt be the same, so 2,3,flex need to be compared
+
+2.
+send final roster list to backend or webworker
+- decide which way to go with that
+
+3. 
+write file
+
+4.
+config download link
+
+5. 
+present download link

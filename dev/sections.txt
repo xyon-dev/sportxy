@@ -1,0 +1,18 @@
+NFL: Draft Kings
+QB:
+1
+RB:
+2
+WR:
+5
+TE:
+1
+DST:
+1
+pick at least: 1 QB, 2 RB, 3 WR, 1 TE, 1 DST, a RB/WR/TE for the Flex postion, and 1 other player from any position:
+
+pos	name	team	game	f.ppg	salary
+	WR	Stefon Diggs	BUF	JAX@BUF	26	8400
+	QB	Josh Allen	BUF	JAX@BUF	25	8100
+	RB	Travis Etienne Jr.	JAX	JAX@BUF	14	7000
+	WR	Calvin Ridley	JAX	JAX@BUF	13	6800

@@ -15,7 +15,6 @@ html, body{
   color: steelblue;
   margin: 0;
   width: 190px;
-  padding-right: 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -30,13 +29,12 @@ html, body{
   justify-content: space-between;
   margin: 0 auto;
   align-items: flex-end;
-  padding-bottom: 10px;
+  padding: 0 10px 10px;
   border-bottom: 1px solid gray;
 }
 .logo{
   display: flex;
   align-items: center;
-  padding-left: 20px;
   font-family: sans-serif;
   font-size: 25px;
   margin: 0;

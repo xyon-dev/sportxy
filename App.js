@@ -54,8 +54,15 @@ export class App{
   }
   register(){
     const queue = document.getElementById("downloads");
+    let downloads;
+    function filterDowloadsArray(arr){
+      let filteredArray = arr.filter((value) => value !== -1 );
+      return filteredArray
+    }
     queue.addEventListener('click',function(){
-      GLOBALS.cart !== 0 ? console.log(SAVED_ROSTERS) : alert("error: no rosters in queue yet");
+      GLOBALS.cart !== 0 ? downloads = filterDowloadsArray(SAVED_ROSTERS.rosters) : alert("error: no rosters in queue yet");
+      // download function
+      console.log(downloads); 
     })
   }
 }
