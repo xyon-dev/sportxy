@@ -8,61 +8,56 @@ export const App = new Application;
  * 
  */
 const dummyRosters = [ // roster 2 and 5 should be removed
-{
-  id: 1,
-  salary: 100,
-  name: {
-    first: 'roster',
-    last: 'one'
-  },
-  wr1: 'jim',
-  wr2: 'jon',
-  wr3: 'james',
-  flex: 'jimmy'
+
+  {
+  AvgPointsPerGame: "32",
+  GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
+  TeamAbbrev: "SF",
+  createdAt: "0000-00-00 00:00:00",
+  id: "1",
+  name: "Christian McCaffrey",
+  nameID: "Christian McCaffrey (30042020)",
+  playerID: "30042020",
+  position: "RB",
+  rosterPos: "RB/FLEX",
+  salary: "9400",
+  updatedAt:"0000-00-00 00:00:00"
 },
 {
-  id: 2,
-  salary: 110,
-  wr1: 'kree',
-  wr2: 'khonur',
-  wr3: 'khem',
-  flex: 'kaizar'
+  AvgPointsPerGame: "32",
+  GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
+  TeamAbbrev: "SF",
+  createdAt: "0000-00-00 00:00:00",
+  id: "1",
+  name: "Deebo Samuel",
+  nameID: "Deebo Samuel (30042020)",
+  playerID: "30042020",
+  position: "WR",
+  rosterPos: "WR/FLEX",
+  salary: "9400",
+  updatedAt:"0000-00-00 00:00:00"
 },
 {
-  id: 3,
-  salary: 100,
-  wr1: 'jim',
-  wr2: 'jon',
-  wr3: 'james',
-  flex: 'jimmy'
-},
-{
-  id: 4,
-  salary: 500,
-  wr1: 'cris',
-  wr2: 'cross',
-  wr3: 'crit',
-  flex: 'curse'
-}, 
-{
-  id: 5,
-  salary: 100,
-  wr1: 'durk',
-  wr2: 'don',
-  wr3: 'dustin',
-  flex: 'danny'
-},
-{
-  id: 6,
-  salary: 500,
-  wr1: 'cris',
-  wr2: 'cross',
-  wr3: 'crit',
-  flex: 'curse'
-}, 
+  AvgPointsPerGame: "32",
+  GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
+  TeamAbbrev: "SF",
+  createdAt: "0000-00-00 00:00:00",
+  id: "1",
+  name: "Brandon Aiyuk",
+  nameID: "Brandon Aiyuk (30042020)",
+  playerID: "30042020",
+  position: "WR",
+  rosterPos: "WR/FLEX",
+  salary: "9400",
+  updatedAt:"0000-00-00 00:00:00"
+} 
 ];
-const rosters = await downloadRosterTxt(dummyRosters);
-console.log(rosters);
+async function getlink(site, rosters){
+  const link = await downloadRosterTxt(site,rosters);
+  const downloadLinkRef = document.getElementById("download-container");
+  downloadLinkRef.innerHTML = `<a href="${link}" id="download-link" type="text/plain" download>Click to download selected rosters</a>`;
+}
+getlink("dk", dummyRosters);
 
 
 

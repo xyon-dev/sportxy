@@ -1,10 +1,13 @@
 import { removeDuplicateRosters } from "./removeDuplicateRosters.js";
-export async function downloadRosterTxt(rosters){
+export async function downloadRosterTxt(site,rosters){
 //let finalRosterList = removeDuplicateRosters(rosters);
-
+const bodyObject = {
+  data: rosters,
+  site: site
+}
 let headers = {
   "method":"post",
-  "body": JSON.stringify(rosters)
+  "body": JSON.stringify(bodyObject)
 }
 let Data;
 await fetch("http://localhost/sportxy/api/backend/get-roster-txt.php", {headers})

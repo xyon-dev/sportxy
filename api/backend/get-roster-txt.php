@@ -2,15 +2,20 @@
 header("Access-Control-Allow-Headers: *");
 // 
 $headers = getallheaders();
-$raw = json_decode($headers["body"]);
+$body = json_decode($headers["body"]);
+$data = $body->data;
+$site = $body->site;
 //
-$file = "temp-0101.txt";
+$date = date("H") . date('i') . date('s');
+$file = $site . "-" . $date . ".txt";
+$numOfRosters = count($data);
+//
 $newFile = fopen($file, "a");
-$numOfRosters = count($raw);
 for ($i = 0; $i < $numOfRosters; $i++) {
-  $player = $raw[$i];
-  $str = $raw[$i]->flex . "\r\n";
+  $player = $data[$i];
+  $str = "$" . $player->salary . " " . $player->position . " " . $player->name . " " . $player->GameInfo . "\r\n";
   file_put_contents($file, $str, FILE_APPEND);
 }
+// s
 
-echo json_encode($raw[0]->name->first);
+echo json_encode("api/backend/" . $file);
