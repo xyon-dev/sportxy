@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: *");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "players";
+$dbname = "sportxy";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -37,7 +37,7 @@ if ($type == "f") {
 function getGameInfo()
 {
   global $conn;
-  $sql = "SELECT * FROM `dk05s` WHERE `position` IN ('DST');";
+  $sql = "SELECT * FROM `nfl10102021dk` WHERE `position` IN ('DST');";
   $dbData = mysqli_query($conn, $sql);
   // check for no data
   if (mysqli_num_rows($dbData) < 1) {

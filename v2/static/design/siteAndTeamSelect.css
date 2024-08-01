@@ -1,0 +1,9 @@
+@media  screen and (max-width: 500px) {
+    #sport-select-container{
+        display: flex;
+        flex-direction: column;
+    }
+    #sport-selection-container p{
+        width: 90%;
+    }
+}
