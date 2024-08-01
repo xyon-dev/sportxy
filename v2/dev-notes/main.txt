@@ -1,0 +1,3 @@
+Main calls App.start(), and controls what happens on the static
+HTML page(s). Any function should be able to be called from main
+and isolated for testing. 

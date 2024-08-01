@@ -1,0 +1,14 @@
+Class: components with event handlers and/or methods 
+  constructor (data...)
+  -- methods()
+  template()
+    a template variable is held internally. data 
+    is applied and the template + data is returned
+    ex: 
+      const component = new Class(params)
+      const loop = ContentLoop(data, component.temp())
+      element.innerHTML = loop
+  register()
+    events: add event listener to components of Class type  
+    good for adding numerous components to the same page
+    where all need a event listener attached

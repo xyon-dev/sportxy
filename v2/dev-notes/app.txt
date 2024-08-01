@@ -1,0 +1,6 @@
+Practice RTS (return to sender) with App class. 
+App methods when called should return to App, and 
+allow App to change the view. This helps for testing later
+and the refocus on App keeps things in order.
+
+App.start() is called by main.

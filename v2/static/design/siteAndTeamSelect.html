@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="margin: 0; height: 100%; width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <style>
+    .disabled{
+      color: lightgrey;
+    }
+    .btn-submit{
+    color: #fff;
+    width: 130px;
+    height: 2.5em;
+    padding: 5px;
+    font-size: large;
+    text-transform: capitalize;
+    background: #2196f3;
+    border: 2px solid #2196f3;
+    border-radius: 5px;
+    }
+  </style>
+  <div id="site-container">
+  <header style="
+    color: white;
+    height: 10vh;
+    max-height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background: #2d2d2d;
+    ">
+    <span style="
+      font-size: x-large;
+      text-transform: capitalize;
+    ">sportxy.</span>
+    <span style="
+      font-size: x-large;
+      text-transform: capitalize;
+      text-transform: uppercase;
+    ">dfs</span>
+  </header>
+  <form action="" method="post" style=" 
+      color: #2d2d2d;
+      border: 1px solid lightgrey;
+      width: 80%;
+      max-width: 660px;
+      padding: 10px 0 0 0;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 50px auto 20px;
+    ">
+    <div id="site-select-container" style="
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        width: 80%;
+        max-width: 550px;
+        height: 7vh;
+        max-height: 70px;
+        margin: 0 auto;
+        font-size: larger;
+        font-weight: 500;
+        align-items: center;
+    ">
+      <section style="    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20vw;
+        max-width: 145px;
+        height: 5vh;
+        justify-content: space-around;
+        max-height: 50px;
+    ">
+      <label for="dk">Draft Kings</label>
+      <input style="accent-color:rgb(20, 136, 237); " type="radio" name="site-select" id="dk" checked>
+      </section>
+      <section style="    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20vw;
+        max-width: 145px;
+        height: 5vh;
+        justify-content: space-around;
+        max-height: 50px;
+    ">
+        <label for="fd">Fan Duel</label>
+        <input style="accent-color:rgb(20, 136, 237); " type="radio" name="site-select" id="fd" value="fd">
+      </section>
+      <section style="    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20vw;
+        max-width: 145px;
+        height: 5vh;
+        justify-content: space-around;
+        max-height: 50px;
+    ">
+        <label for="yf">Yahoo DFS</label>
+        <input style="accent-color:rgb(20, 136, 237); " type="radio" name="site-select" id="yf" value="yf">
+      </section>
+  </div>
+  <div id="sport-select-container" style="
+      display: flex;
+      padding: 10px;
+      width: 80%;
+      height: auto;
+      max-width: 550px;
+      justify-content: space-evenly;
+      margin: 0 auto;
+      border-top: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey;
+      font-size: larger;
+      font-weight: 400;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+  ">
+    <p style="
+      border: 2px solid #2196F3;
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+    ">nfl</p>
+    <p style="
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      ">nba</p>
+    <p style="
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      ">mlb</p>
+    <p class="disabled" style="
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      ">nhl</p>
+    <p class="disabled" style="
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      ">wnba</p>
+    <p class="disabled" style="
+      display: flex;
+      width: 25%;
+      height: 2em;
+      text-align: center;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      ">cfl</p>
+  </div>
+  <div id="btn-submit-container" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  ">
+    <button type="submit" class="btn-submit" id="submitSiteSelect">submit</button>
+  </div>
+  </form>
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>

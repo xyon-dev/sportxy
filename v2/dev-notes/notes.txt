@@ -1,0 +1,48 @@
+elements:
+  /components (display only, state changed by external controller)
+    header
+    footer
+    aside:preview-panel(selected players)
+    card(position-count)
+    p:logo
+    button:download-queue
+
+  /classes (display + event or method, self controlled state)
+    button(img):download
+    button:submit
+    form: site/sport select
+    section/table:roster
+    section/checkbox:game-info-card (team-a, team-b, both(click anywhere except checkbox))
+    section/checkbox:player-card
+
+  /images
+    image:select site
+    image:select sport
+    image:file-type
+    image:download
+
+functions:
+  /~
+    /Filexy:file
+      input: array (objects or strings)
+      return: .txt, .pdf. or .csv
+      ContentLoop
+        input: array[data objects to display], template
+        return:  all data objects applied to template sting (posted by caller)
+
+    /roster-functions
+      groupThreePlayers
+      groupFourPlayers
+        input: array of objects -> players
+        return: array of objects -> all 3 or 4 player combinations 
+      createDoubleStack
+        input: arrays of qb's and wr's 
+        return: array of objects -> all combinations of qb/wr same team
+      createTrippleStack
+        input: array -> [0] = format, [qb][...wr or [wr][rb][te] ] 
+        return: array of objects -> qb/wr, qb/wr/wr, qb,rb,wr, qb,wr,te, qb,rb,te...
+      removeDuplicateRosters
+        input:
+        return: array -> roster objects
+        return: array -> roster objects minus duplicates (flex could match rb, or wr)
+      

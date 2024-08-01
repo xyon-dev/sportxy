@@ -1,5 +1,6 @@
 import { downloadRosterTxt } from "./functions/downloadRosterTXT.js";
 import { App as Application } from "./App.js";
+import { Filexy } from "./functions/filexy-js/filexy.js";
 export const App = new Application;
 
 /**
@@ -50,14 +51,17 @@ const dummyRosters = [ // roster 2 and 5 should be removed
   rosterPos: "WR/FLEX",
   salary: "9400",
   updatedAt:"0000-00-00 00:00:00"
-} 
+}  
 ];
-async function getlink(site, rosters){
-  const link = await downloadRosterTxt(site,rosters);
-  const downloadLinkRef = document.getElementById("download-container");
-  downloadLinkRef.innerHTML = `<a href="${link}" id="download-link" type="text/plain" download>Click to download selected rosters</a>`;
-}
-getlink("dk", dummyRosters);
+const file = new Filexy;
+file.pdf("hey");
+
+// async function getlink(site, rosters){
+//   const link = await downloadRosterTxt(site,rosters);
+//   const downloadLinkRef = document.getElementById("download-container");
+//   downloadLinkRef.innerHTML = `<a href="${link}" id="download-link" type="text/plain" download>Click to download selected rosters</a>`;
+// }
+// getlink("dk", dummyRosters);
 
 
 
