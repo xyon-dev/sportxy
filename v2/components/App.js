@@ -1,13 +1,19 @@
+import { SitesHeader, sitesHeaderContent } from "./functions/sites-header.js";
+import { SportsHeader, sportsHeaderContent } from "./functions/sports-header.js";
 export class App{
   #id
   constructor(id){
     this.#id = id;
   }
+
   start(){
-    const AppElement = document.getElementById(this.#id);
-    AppElement.innerHTML = `<h1>App</h1>`;
+    const sites = document.getElementById("sites");
+    const sports = document.getElementById("sports");
+    sites.innerHTML = SportsHeader;
+    sports.innerHTML = SitesHeader;
+
   }
   register(){
-    console.log("app register");
+    
   }
 }

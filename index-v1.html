@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sports Money DFS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <script>
+      let qb=0; 
+      let rb=0; 
+      let wr=0; 
+      let te=0; 
+      let dst=0;
+      let count=0;
+      function positionCount(pos, playerID, countX){
+        console.log(pos);
+        let el = document.getElementById(pos); 
+        //let player = document.getElementById(playerID); console.log(el.innerHTML);
+        let checkbox = document.getElementById(playerID); 
+        let isChecked = checkbox.checked; 
+        //if(isChecked == true){ count = count + 1; el.innerHTML = `${pos}: ${count}`; }else{ count = count - 1 ; el.innerHTML = `${pos}: ${count}`;}
+        switch(pos){
+          case "QB": 
+            isChecked ? qb++ : qb--;
+            el.innerHTML = `${pos}: ${qb}`;
+            break;
+          case "RB":
+            isChecked == true ? rb++ : rb--;
+            el.innerHTML = `${pos}: ${rb}`;
+            break;
+          case "WR":
+            isChecked == true ? wr++ : wr--;
+            el.innerHTML = `${pos}: ${wr}`;
+            break;
+          case "TE":
+            isChecked == true ? te++ : te--;
+            el.innerHTML = `${pos}: ${te}`;
+            break;
+          case "DST":
+            isChecked == true ? dst++ : dst--;
+            el.innerHTML = `${pos}: ${dst}`;
+            break;
+          default: 
+            console.log("ERROR: query missing position parameter");
+            break;
+        }
+      }
+      function playerCountNotice(){
+        if(wr + rb + te < 7 || rb < 2 || wr < 3 || qb < 1 || te < 1 || dst < 1){
+          msg = document.getElementById("player-count-notice");
+          msg.innerHTML = "Not enough players picked. At least 1 QB, 2 RB, 3 WR, 1 TE, 1 DST and a FLEX player neeeded."
+        }
+      }
+    </script>
+    <div id="main">
+    <header class="main-header">
+      <p class="logo">Sportxy.DFS</p>
+      <p id="cart">
+        <span>Download queue: </span>
+        <span id="itemsInCart">0</span>
+        <img src="./img/icons/download.png" id="downloads" style="    
+          height: 25px;
+          width: auto;
+          border-left: 1px solid;
+          padding-left: 10px;"
+        > 
+      </p>
+    </header>
+    <div id="download-container" style="
+      width:900px;
+      margin: 0 auto;
+      text-align: right;
+      padding: 10px 10px;">
+    </div>
+    <article id="App"></article>
+    </div>
+  <script src="main.js" async defer type="module"></script>
+  </body>
+</html> 
