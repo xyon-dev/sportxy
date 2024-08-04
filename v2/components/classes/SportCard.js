@@ -1,4 +1,4 @@
-class SportCard {
+export class SportCard {
   #sport
   constructor(sport){
     // object with keys: title, status 
@@ -7,21 +7,34 @@ class SportCard {
   }
   temp(){
     const statusClassList = {
-      available: `sport-options__option`,
-      disabled: `sport-options__option sport-options__option--disabled`,
-      primary:  `sport-options__option sport-options__option--selected`
+      base: `sport-options__option`,
+      disabled: `sport-options__option--disabled`,
+      primary:  `sport-options__option--selected`,
+
     }
-      return `
-      <p id="${this.#sport.title}-select" class="${statusClassList[this.#sport.status]}">${this.#sport}</p>
-      `
-  }
-  register(){
+    // create element "p"
     const p = document.createElement("p");
-    p.innerHTML = temp(this.#sport);
+    // add ID
+    p.setAttribute("id", `${this.#sport.title}-select`);
+    // add Classes
+    p.classList.add(statusClassList.base)
+    if(this.#sport.status == "primary"){ 
+      p.classList.add(statusClassList.primary);
+    }else if(this.#sport.status == "disabled"){
+      p.classList.add(statusClassList.disabled);
+    }
+    // insert html: "nfl, nba, etc"
+    p.innerHTML = `${this.#sport.title}`;
+    // return p to site header function to be 
+    // appended to site header
+    return p
+  }
+  register(id){
+    const p = document.getElementById(id);
     p.addEventListener("click", function (e) {
-      const selected = document.querySelector(".sort-options__option--selected");
-      selected.toggleclass(".sort-options__option--selected");
-      p.toggleclass("sort-options__option--selected");
+      const selected = document.querySelector(".sport-options__option--selected");
+      selected.classList.toggle("sport-options__option--selected");
+      p.classList.toggle("sport-options__option--selected");
     })
   }
 }  

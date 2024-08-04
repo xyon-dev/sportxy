@@ -8,7 +8,7 @@ export const SPORTS = [
 ];
 
 export const SITES = [
-  {title: "draft kings", initials: "dk"},
-  {title: "fan duel", initials: "fd"},
-  {title: "yahoo dfs", initials: "yd"}
+  {title: "draft kings", initials: "dk", status: "primary"},
+  {title: "fan duel", initials: "fd", status: "secondary"},
+  {title: "yahoo dfs", initials: "yd", status: "secondary"}
 ]

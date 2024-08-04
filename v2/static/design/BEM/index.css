@@ -131,10 +131,10 @@ body{
     padding: 0px 10px;
     background: #292929;
 }
-.logo{
+/* .logo{
 
-/* font-family: sans-serif; */
-}
+font-family: sans-serif;
+} */
 .logo__text--name{
     text-transform: capitalize;
 }
@@ -347,9 +347,9 @@ max-width: 500px;
     height: 2em;
     align-items: center;
 }
-.schedule-card__link{
+/* .schedule-card__link{
 
-}
+} */
 .schedule-card__link--clicked{
     text-decoration: underline;
     color: chocolate;
@@ -368,7 +368,7 @@ max-width: 500px;
 }
 .site-options{
     border: 0;
-    background: #dbdbdb45;
+    background: #dbdbdbd1;
     display: flex;
     width: 90%;
     /* max-width: 500px; */
@@ -400,6 +400,7 @@ max-width: 500px;
     width: 100%;
 }
 .sport-options{
+    background-color: rgb(211 211 211 / 26%);
     display: flex;
     justify-content: space-evenly;
     padding: 10px 0;

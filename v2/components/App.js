@@ -9,9 +9,10 @@ export class App{
   start(){
     const sites = document.getElementById("sites");
     const sports = document.getElementById("sports");
-    sites.innerHTML = SportsHeader;
-    sports.innerHTML = SitesHeader;
-
+    sites.innerHTML = SitesHeader;
+    sports.innerHTML = SportsHeader;
+    sitesHeaderContent();
+    sportsHeaderContent();
   }
   register(){
     
