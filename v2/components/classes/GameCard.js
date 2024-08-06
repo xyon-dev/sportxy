@@ -37,7 +37,6 @@ export class GameCard{
     container.appendChild(ScheduleCard);
   }
   register(){
-    
     const homeLink = document.getElementById(this.home);
     const visitorLink = document.getElementById(this.visitor);
     homeLink.addEventListener("click", function(){

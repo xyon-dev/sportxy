@@ -3,6 +3,7 @@ export let GLOBALS = {
   schedule: null,
   salaryCap: 0,
   rosterOptions: [],
+  games: [],
   players: [],
   listQB: [],
   listRB: [],

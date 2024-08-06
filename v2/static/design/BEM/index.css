@@ -50,6 +50,11 @@ body{
     /* overflow: inherit; */
     padding-bottom: 10px;
 }
+#controls{
+    background: #f1f1f1;
+    /* min-height: 50px; */
+    padding: 10px;
+}
 .bebas-neue-regular {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
@@ -103,22 +108,23 @@ body{
     padding-left: 0px;
     height: 40px;
 }
-.filter-controls{
-    display: none;
-    /* display: flex; */
+.player-search-controls{
+    display: flex;
     align-items: center;
     font-size: smaller;
     height: 100%;
     text-align: left;
     text-transform: capitalize;
+    margin-left: 40px;
 }
-.fileter__label{
+.search__label{
     color: #5b5a5a;;
 }
 .filters__link{
     color: chocolate;
     text-decoration: underline;
     margin: 0 10px;
+    cursor: pointer;
 }
 .header{
     color: white;
@@ -343,6 +349,9 @@ max-width: 500px;
     justify-content: space-around;
     height: 2em;
     align-items: center;
+}
+.schedule-card__link, .schedule-card__link--clicked, .sport-options__option{
+    cursor: pointer;
 }
 .schedule-card__link{
     text-decoration: underline;

@@ -35,7 +35,6 @@ export class App{
     let schedule = new GameSchedule(data.site, data.sport)
     await schedule.temp();
     schedule.register();
-   
   }
   register(){
     

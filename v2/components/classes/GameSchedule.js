@@ -1,7 +1,8 @@
 import { app } from "../../main.js";
-import { gameForm } from "../../functions/game-formxy.js";
+// import { gameForm } from "../../functions/game-formxy.js";
 import { getSchedule } from "../../api/getSchedule.js";
 import { GameCard } from "./GameCard.js";
+import { GLOBALS } from "../../store/store.js";
 export class GameSchedule{
   #site
   #sport
@@ -10,9 +11,17 @@ export class GameSchedule{
     this.#sport = sport;
   }
   async temp (){
+    const controls = document.getElementById("controls")
     let schedule = await getSchedule(this.#site, this.#sport, "dst");
     let parentID = "gameScheduleContainer"
     const content = document.getElementById("content");
+    controls.innerHTML = `
+    <div class="player-search-controls">
+        <p class="search__label">Search by selected:</p>
+        <p id="gamesFilter" class="filters__link">games</p>
+        <p id="timesFilter" class="filters__link">times</p>
+      </div>
+    `
     content.innerHTML = `
       <div class="schedule" id="${parentID}"></div>
     `
@@ -23,16 +32,13 @@ export class GameSchedule{
     });
   }
   register(){
-    const GameForm = document.getElementById("gameOptions"); 
-    // GameForm.addEventListener('submit', function (e){
-    //   e.preventDefault();
-    //   const submit = document.getElementById("game-submit");
-    //   const formData = new FormData(GameForm, submit);
-    //   let games = [];
-    //   for(const key of formData.keys()){
-    //     games.push(key);
-    //   }
-    //   app.PlayerSelect(games);
-    // });
+    const games = document.getElementById("gamesFilter");
+    const times = document.getElementById("timesFilter");
+    games.addEventListener("click", function (){
+      let selectedGames = document.querySelectorAll(".schedule-card__link--clicked");
+      selectedGames.forEach(element => {
+        GLOBALS.games.push(element.id);
+      })
+    })
   }
 }

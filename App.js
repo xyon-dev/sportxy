@@ -19,6 +19,10 @@ export class App{
     await schedule.temp();
     schedule.register();
   }
+  /**
+   * NEXT COMPONENT
+   *  
+   */
   async PlayerSelect(games){ 
     let playerList = new Players(games);
     await playerList.temp();
