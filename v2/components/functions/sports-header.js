@@ -1,4 +1,4 @@
-import { SPORTS } from "../../store/store.js";
+import { QUERY, SPORTS } from "../../store/store.js";
 import { SportCard } from "../classes/SportCard.js";
 
 const SportsHeader = `<div id="SportsHeader" class="sport-options"></div>`;
@@ -11,6 +11,9 @@ function sportsHeaderContent(){
     header.appendChild(el);
     if(element.status !== "disabled"){
       card.register(el.id);
+    }
+    if(element.status == "primary"){
+      QUERY.sport = element.title;
     }
   });
 }

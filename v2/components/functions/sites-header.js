@@ -1,5 +1,5 @@
-import { siteCard } from "./site-card.js";
-import { SITES } from "../../store/store.js";
+import { SiteCard } from "./site-card.js";
+import { QUERY, SITES } from "../../store/store.js";
 import { ContentLoop } from "../../../v3/ContentLoop.js";
 
 
@@ -12,13 +12,17 @@ export function sitesHeaderContent(){
   SITES.forEach(element => {
     let card;
     if(element.status == "primary"){
-      card = siteCard(true, element);
+      card =  new SiteCard(true, element);
     }else{
-      card = siteCard(false, element);
+      card = new SiteCard(false, element);
     }
     const el = document.createElement("li");
     el.classList.add("site-options__option");
-    el.innerHTML = card;
+    el.innerHTML = card.temp();
     parent.appendChild(el);
+    card.register(); 
+    if(element.status == "primary"){
+      QUERY.site = element.initials;
+    }
   });
 }

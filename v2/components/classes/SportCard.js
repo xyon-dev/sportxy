@@ -1,3 +1,6 @@
+import { QUERY } from "../../store/store.js";
+import { app } from "../../main.js";
+
 export class SportCard {
   #sport
   constructor(sport){
@@ -31,18 +34,13 @@ export class SportCard {
   }
   register(id){
     const p = document.getElementById(id);
+    const ID = this.#sport.title;
     p.addEventListener("click", function (e) {
       const selected = document.querySelector(".sport-options__option--selected");
       selected.classList.toggle("sport-options__option--selected");
       p.classList.toggle("sport-options__option--selected");
+      QUERY.sport = ID;
+      app.updateSearch();
     })
   }
 }  
-
-
-{/* <p class="sport-options__option sport-options__option--selected">nfl</p>
-            <p class="sport-options__option">nba</p>
-            <p class="sport-options__option">mlb</p>
-            <p class="sport-options__option sport-options__option--disabled">nhl</p>
-            <p class="sport-options__option sport-options__option--disabled">wnba</p>
-            <p class="sport-options__option sport-options__option--disabled">cfl</p> */}

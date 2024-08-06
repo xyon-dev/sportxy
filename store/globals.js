@@ -1,6 +1,4 @@
 export let GLOBALS = {
-  site: "",
-  sport:"",
   cart: 0,
   schedule: null,
   salaryCap: 0,

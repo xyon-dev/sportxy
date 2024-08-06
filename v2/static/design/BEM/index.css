@@ -78,7 +78,7 @@ body{
     color: black;
     display: flex;
     height: 60%;
-    min-height: 400px;
+    min-height: 200px;
     max-height: 600px;
     flex-direction: column;
     align-items: center;
@@ -319,11 +319,8 @@ max-width: 500px;
     color: #373737;
 }
 .schedule{
-    /*  */
-    display: none;
-    /*  */
     padding: 10px;
-    /* display: flex; */
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     /* height: 70%; */
@@ -347,9 +344,9 @@ max-width: 500px;
     height: 2em;
     align-items: center;
 }
-/* .schedule-card__link{
-
-} */
+.schedule-card__link{
+    text-decoration: underline;
+}
 .schedule-card__link--clicked{
     text-decoration: underline;
     color: chocolate;
