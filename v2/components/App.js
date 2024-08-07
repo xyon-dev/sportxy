@@ -1,8 +1,10 @@
 import { SitesHeader, sitesHeaderContent } from "./functions/sites-header.js";
 import { SportsHeader, sportsHeaderContent } from "./functions/sports-header.js";
 import { SearchSubmit} from "./SearchSubmit.js";
-import { QUERY } from "../store/store.js";
+import { QUERY, SITES } from "../store/store.js";
 import { GameSchedule } from "./classes/GameSchedule.js";
+import { playerPool } from "../api/player-pool.js";
+
 export class App{
   #id
   constructor(id){
@@ -35,6 +37,10 @@ export class App{
     let schedule = new GameSchedule(data.site, data.sport)
     await schedule.temp();
     schedule.register();
+  }
+  async PlayerSelect(games){ 
+    let players = await playerPool(QUERY.site, games, "f");
+    console.log(players);
   }
   register(){
     

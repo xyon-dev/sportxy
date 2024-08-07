@@ -108,6 +108,18 @@ body{
     padding-left: 0px;
     height: 40px;
 }
+.controls__btn{
+    padding: 5px;
+    border: 1px solid lightgreen;
+    background: #d2f9d1;
+    color: #000000cf;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 40px;
+}
 .player-search-controls{
     display: flex;
     align-items: center;
@@ -119,6 +131,9 @@ body{
 }
 .search__label{
     color: #5b5a5a;;
+}
+.filters{
+    display: flex;
 }
 .filters__link{
     color: chocolate;
@@ -256,14 +271,10 @@ font-family: sans-serif;
     margin: 0 auto;
 }
 .rosters{
-
-margin: 0 auto;
-
-/* height: 100%; */
-
-background: #fff;
-
-max-width: 500px;
+    margin: 0 auto;
+    /* height: 100%; */
+    background: #fff;
+    max-width: 500px;
 }
 .roster{
     background: #fdfdfd;
@@ -271,16 +282,7 @@ max-width: 500px;
     width: 98%;
     margin: 2% auto;
 }
-.roster-controls__btn{
-    padding: 5px;
-    border: 1px solid lightgreen;
-    background: #d2f9d1;
-    color: #000000cf;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 600;
-}
+
 .roster-heading{
     display: flex;
     background: #cbcbcba6;

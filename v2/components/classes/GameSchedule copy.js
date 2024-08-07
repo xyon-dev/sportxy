@@ -1,5 +1,4 @@
 import { app } from "../../main.js";
-
 // import { gameForm } from "../../functions/game-formxy.js";
 import { getSchedule } from "../../api/getSchedule.js";
 import { GameCard } from "./GameCard.js";
@@ -39,7 +38,7 @@ export class GameSchedule{
       selectedGames.forEach(element => {
         GLOBALS.games.push(element.id);
       })
-      app.PlayerSelect(GLOBALS.games);
+      console.log(GLOBALS.games);
     })
   }
 }
