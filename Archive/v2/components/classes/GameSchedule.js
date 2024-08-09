@@ -1,5 +1,4 @@
 import { app } from "../../main.js";
-
 // import { gameForm } from "../../functions/game-formxy.js";
 import { getSchedule } from "../../api/getSchedule.js";
 import { GameCard } from "./GameCard.js";
@@ -15,7 +14,7 @@ export class GameSchedule{
     const controls = document.getElementById("controls")
     let schedule = await getSchedule(this.#site, this.#sport, "dst");
     let parentID = "gameScheduleContainer"
-    const content = document.getElementById("content");
+    const app = document.getElementById("App");
     controls.innerHTML = `
     <div class="player-search-controls">
       <button id="btn-search-players" class="controls__btn">get player pool</button>

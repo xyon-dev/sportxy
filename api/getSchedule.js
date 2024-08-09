@@ -1,28 +1,28 @@
-import { GLOBALS } from "../store/globals.js";
+import { SCHEDULE } from "../store.js";
 
 
 /*  in: date; sport (future)
  *  fetch game schedule
  *  out: array of games
  */ 
-export async function getSchedule(site, sport, type){
+export async function getSchedule(query, type){ console.log(query);
   //fetch schedule
   let body = {
-    site: GLOBALS.site
+    site: query.site
   }  
   const headers = {
     "method": "POST",
-    "sport": sport,
+    "sport": query.sport,
     "type": type,
     "body": JSON.stringify(body)
   }
-  if(site == "dk"){
+  if(query.site == "dk"){
   await fetch('http://localhost/sportxy/api/backend/get-dk.php', { headers })
     .then((response) => response.json())
     .then((data) => {
-      GLOBALS.schedule = data.toSpliced();
+      SCHEDULE.games = data.toSpliced(); 
     });
-  return GLOBALS.schedule;
+  return SCHEDULE.games;
   }
 }
 

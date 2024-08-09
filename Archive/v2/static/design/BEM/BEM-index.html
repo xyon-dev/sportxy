@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header bebas-neue-header">
+    <p class="logo">
+        <span class="logo__text--name">sportxy</span>
+        <span class="logo__text--subject">dfs</span>
+    </p>
+    </header>
+    <form class="site-select bebas-neue-regular" id="roster-options" action="">
+        <ul class="site-options">
+            <li class="site-options__option">
+                <label for="dk">
+                    <input type="radio" id="dk" name="site-select" value="dk" checked></label>
+                    <p site-options__link>draft kings</p>
+                </label>
+            </li>
+            <li class="site-options__option">
+                <label for="fd">
+                    <input type="radio" id="fd" name="site-select" value="fd"></label>
+                    <p site-options__link>fan duel</p>
+                </label>
+            </li>
+            <li class="site-options__option">
+                <label for="yf">
+                    <input type="radio" id="yf" name="site-select" value="yf"></label>
+                    <p site-options__link>yahoo dfs</p>
+                </label>
+            </li>
+        </ul>
+        <div class="sport-options">
+            <p class="sport-options__option sport-options__option--selected">nfl</p>
+            <p class="sport-options__option">nba</p>
+            <p class="sport-options__option">mlb</p>
+            <p class="sport-options__option sport-options__option--disabled">nhl</p>
+            <p class="sport-options__option sport-options__option--disabled">wnba</p>
+            <p class="sport-options__option sport-options__option--disabled">cfl</p>
+        </div>
+    </form>
+    <!-- <div class="btn-submit">
+      <p class="selection-memo">Would you like to select players from {site}, {sport} slate? If not, select a different site and sport.
+      </p>      
+      <input class="submit-btn" type="submit" for="roster-options" value="go"></input>
+    </div> -->
+    <div class="controls">
+
+      
+      <div class="filter-controls">
+        <p class="filters__label">filters:</p>
+        <p class="filters__link">games</p>
+        <p class="filters__link">times</p>
+      </div>
+      
+      
+      <div class="player-controls">
+        <p>view and/or confirm selections</p><p>clear selections</p>
+      </div>
+      
+      
+      <div class="roster-controls"><button class="roster-controls__btn">download rosters</button class="roster-controls__btn"></div>
+    </div> 
+    
+    
+    <div class="schedule">
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link--clicked">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link--clicked">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link--clicked">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link--clicked">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link--clicked">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link--clicked">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-card__game-info">
+          <section class="schedule-card__teams">
+            <p class="schedule-card__link">BUF</p>
+            <p>V</p>
+            <p class="schedule-card__link">KC</p>
+          </section>
+          <p class="schedule-card__time">1820</p>
+        </div>
+      </div>
+    </div>
+    <div class="times">
+      <div class="times-container">
+        <div class="time-card time-card--clicked">
+            <p class="time-card__time">MORNING</p>
+        </div>
+        <div class="time-card">
+            <p class="time-card__time">AFTERNOON</p>
+        </div>
+        <div class="time-card">
+            <p class="time-card__time">PRIMETIME</p>
+        </div>
+      </div>
+      <div class="btn-submit">
+        <input class="submit-btn" type="submit" for="roster-options" value="search"></input>
+      </div>
+    </div>
+    <div class="players">
+      <div class="player-list">
+        <div class="player__stats player-list__labels">
+          <span class="player__data">position</span>
+          <span class="player__data">name</span>
+          <span class="player__data">team</span>
+          <span class="player__data">fppg</span>
+          <span class="player__data">salary</span>
+        </div>
+        <div class="player selected">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>
+        <div class="player">
+          <div class="player__stats">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+          <div class="player__game">
+            <p>MIA@TB 10/10/2021 01:00PM ET</p>
+          </div>
+        </div>   
+      </div>
+      <div class="player-pool">
+        <div class="close-icon"><p class="close-icon__text">back</p></div>
+        <ul class="player-pool__list">
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+          <li class="player-pool__item"><p class="player-pool__position">qb</p><p class="player-pool__name">tom brady</p><p class="player-pool__fppg">29.1</p><p class="player-pool__salary">$7999</p></li>
+        </ul>
+        <div class="btn-container">
+          <input class="btn-get" type="submit" value="get rosters">
+        </div>
+      </div>
+    </div>
+    <div class="rosters">
+      <div class="roster">
+        <div class="roster-heading">
+          <p class="roster-id">roster 1</p>
+          <label for="roster-1" class="roster__save">
+            <input id="roster-1" type="checkbox" class="roster__save-input" name="roster-1" value="roster-1">
+            <p class="roster__save-text">save</p>
+          </label>
+        </div>        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+      </div>
+      <div class="roster">
+        <div class="roster-heading">
+          <p class="roster-id">roster 2</p>
+          <label for="roster-1" class="roster__save">
+            <input id="roster-1" type="checkbox" class="roster__save-input" name="roster-1" value="roster-1">
+            <p class="roster__save-text">save</p>
+          </label>
+        </div>
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+        <div class="roster__player">
+          <div class="roster-player__items">
+            <span class="player__data player__data--uppercase">qb</span>
+            <span class="player__data">tom brady</span>
+            <span class="player__data player__data--uppercase">tb</span>
+            <span class="player__data">24.6</span>
+            <span class="player__data">$7900</span>
+          </div>
+        </div> 
+      </div>
+    </div>
+</body>
+</html>

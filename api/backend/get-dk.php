@@ -61,7 +61,7 @@ function getGameInfo()
 function getPlayerPool()
 {
   global $conn;
-  $sql = "SELECT * FROM `dk05s`;";
+  $sql = "SELECT * FROM `nfl10102021dk`;";
   $dbData = mysqli_query($conn, $sql);
   // check for no data
   if (mysqli_num_rows($dbData) < 1) {
@@ -82,7 +82,7 @@ function getPlayerPool()
 
 # in:JSON array of teams
 # out: JSON Players from selected teams
-# query: "SELECT * FROM `dk05s` WHERE `TeamAbbrev`IN ("Teams", "Team"...);" 
+# query: "SELECT * FROM `nfl10102021dk` WHERE `TeamAbbrev`IN ("Teams", "Team"...);" 
 # GameInfo data: "PHI@LAR 10/08/2023 04:05PM ET" 
 function buildGamesString($games)
 {
@@ -100,7 +100,7 @@ function buildGamesString($games)
 function getFilteredPlayerPool($query)
 { // $query = array of games : built to string
   global $conn;
-  $sql = "SELECT * FROM `dk05s` WHERE `TeamAbbrev` IN $query;";
+  $sql = "SELECT * FROM `nfl10102021dk` WHERE `TeamAbbrev` IN $query;";
   //
   $dbData = mysqli_query($conn, $sql);
   // check for no data

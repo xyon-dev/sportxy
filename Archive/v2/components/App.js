@@ -1,4 +1,4 @@
-import { SitesHeader, sitesHeaderContent } from "./functions/sites-header.js";
+ import { SitesHeader, sitesHeaderContent } from "./functions/sites-header.js";
 import { SportsHeader, sportsHeaderContent } from "./functions/sports-header.js";
 import { SearchSubmit} from "./SearchSubmit.js";
 import { QUERY, SITES } from "../store/store.js";
