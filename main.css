@@ -55,6 +55,9 @@ body{
   /* min-height: 50px; */
   padding: 10px;
 }
+#close{
+  cursor: pointer;
+}
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
@@ -202,8 +205,11 @@ font-family: sans-serif;
 .player__data--uppercase{
   text-transform: uppercase;
 }
+.player-control{
+  border: 0;
+  cursor: pointer;
+}
 .player-controls{
-
   display: flex;
   font-size: smaller;
   height: 100%;
@@ -213,11 +219,12 @@ font-family: sans-serif;
   color: green;
   justify-content: space-between;
   width: 95%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .player-pool{
-  display: none;
   width: 100%;
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   z-index: 2;
   position: absolute;
@@ -485,4 +492,8 @@ font-family: sans-serif;
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+/*  */
+.hide{
+  display: none;
 }

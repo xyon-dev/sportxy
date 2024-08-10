@@ -5,7 +5,7 @@ import { SCHEDULE } from "../store.js";
  *  fetch game schedule
  *  out: array of games
  */ 
-export async function getSchedule(query, type){ console.log(query);
+export async function getSchedule(query, type){ 
   //fetch schedule
   let body = {
     site: query.site

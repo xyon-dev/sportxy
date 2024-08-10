@@ -28,6 +28,9 @@ export const SPORTS = [
 export const FILTERED_PLAYERS = {
   pool: null
 }
+export const SELECTED_PLAYERS = {
+  pool: []
+}
 export let ROSTERS = [];
 export let SAVED_ROSTERS = {
   rosters: []

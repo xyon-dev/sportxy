@@ -1,4 +1,4 @@
-import { QUERY } from "./store.js";
+import { QUERY, SELECTED_PLAYERS } from "./store.js";
 // import { SearchSubmit } from "./classes/SearchSubmit.js";
 import { getSchedule } from "./api/getSchedule.js";
 import { playerPool } from "./api/player-pool.js";
@@ -6,6 +6,8 @@ import { GameSchedule } from "./classes/GameSchedule.js";
 import { GAMES, FILTERED_PLAYERS } from "./store.js";
 import { removeDuplicateGames } from "./functions/removeDuplicateGames.js"
 import { PlayerList } from "./classes/PlayerList.js";
+import { SelectedPlayers } from "./classes/SelectedPlayers.js";
+import { buildFilteredRosters } from "./Archive/v2/functions/build-filtered-roster.js";
 export class App{
   // app element ID: from main
   #id 
@@ -26,27 +28,75 @@ export class App{
     const controls = document.getElementById("controls");
     controls.innerHTML = ` 
       <div class="player-controls">
-        <p>view and/or confirm selections</p><p>clear selections</p>
+        <button id="confirm-selections" class="player-control">view and/or confirm selections</button>
+        <button id="clear-players" class="player-control">clear selections</button>
       </div>`;
     const pool = await playerPool(QUERY.site, games, "f");
     FILTERED_PLAYERS.pool = pool;
     const app = document.getElementById("App");
     app.innerHTML = `
     <div class="players">
-     <div id="PlayerList" class="player-list">
-      <div class="player__stats player-list__labels">
-          <span class="player__data">position</span>
-          <span class="player__data">name</span>
-          <span class="player__data">team</span>
-          <span class="player__data">fppg</span>
-          <span class="player__data">salary</span>
-       </div>
-     </div>
+      <div id="player-pool" class="player-pool hide">
+        <div class="close-icon"><p id="close" class="close-icon__text">back</p></div>
+          <ul id="player-pool-list" class="player-pool__list">
+          </ul>
+        <div class="btn-container">
+            <button id="get-rosters" class="btn-get">get rosters</button>
+        </div>
+      </div> 
+      <div id="PlayerList" class="player-list">
+        <div class="player__stats player-list__labels">
+            <span class="player__data">position</span>
+            <span class="player__data">name</span>
+            <span class="player__data">team</span>
+            <span class="player__data">fppg</span>
+            <span class="player__data">salary</span>
+        </div>
+      </div>
     </div>
-    `
+    `;
     // create player list
     let playerList = new PlayerList("PlayerList", FILTERED_PLAYERS.pool);
     playerList.temp();
+    // confirm selections event
+    const confirm = document.getElementById("confirm-selections");
+    confirm.addEventListener("click", function(){
+      const selected = document.getElementById("player-pool");
+      if(selected.classList.contains("hide")){
+        SELECTED_PLAYERS.pool.forEach(element => {
+          const newElem = new SelectedPlayers("player-pool-list", element);
+          newElem.temp();
+         });  
+        selected.classList.toggle("hide");
+      }else{
+        selected.classList.toggle("hide");
+        const list = document.getElementById("player-pool-list");
+        list.innerHTML=  ``;
+      }
+    });
+    // close button event
+    const close = document.getElementById("close")
+    close.addEventListener("click", function (){
+      const selected = document.getElementById("player-pool"); 
+      selected.classList.toggle("hide");
+      const list = document.getElementById("player-pool-list");
+      list.innerHTML=``;
+    })
+    // clear selections
+    const clear = document.getElementById("clear-players");
+    clear.addEventListener("click", function(){
+      const allSelected = document.querySelectorAll(".selected");
+      allSelected.forEach(element => {
+        element.classList.toggle("selected");
+      })
+      SELECTED_PLAYERS.pool = [];
+    })
+    // get rosters btn
+    const getRosters = document.getElementById("get-rosters");
+    getRosters.addEventListener("click", function(){
+      const rosters = buildFilteredRosters(SELECTED_PLAYERS.pool, "optimized")
+      console.log(rosters);
+    })
   }
   async GameSelect(query){ 
     const app = document.getElementById("App");
