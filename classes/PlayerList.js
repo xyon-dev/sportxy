@@ -54,10 +54,8 @@ export class PlayerList {
       player.classList.toggle("selected");
       if(index < 0){ 
         SELECTED_PLAYERS.pool.push(playerIndex);
-        console.log(SELECTED_PLAYERS.pool);
       }else{
         SELECTED_PLAYERS.pool[index] = -1;
-        console.log(SELECTED_PLAYERS.pool)
       }
     })
   }

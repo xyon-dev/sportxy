@@ -1,4 +1,4 @@
-import { QUERY, SELECTED_PLAYERS } from "./store.js";
+import { QUERY, SELECTED_PLAYERS, FINAL_ROSTERS } from "./store.js";
 // import { SearchSubmit } from "./classes/SearchSubmit.js";
 import { getSchedule } from "./api/getSchedule.js";
 import { playerPool } from "./api/player-pool.js";
@@ -7,7 +7,8 @@ import { GAMES, FILTERED_PLAYERS } from "./store.js";
 import { removeDuplicateGames } from "./functions/removeDuplicateGames.js"
 import { PlayerList } from "./classes/PlayerList.js";
 import { SelectedPlayers } from "./classes/SelectedPlayers.js";
-import { buildFilteredRosters } from "./Archive/v2/functions/build-filtered-roster.js";
+import { buildFilteredRosters } from "./functions/filterPlayerPool.js";
+import { Roster } from "./classes/Rosters.js";
 export class App{
   // app element ID: from main
   #id 
@@ -23,6 +24,24 @@ export class App{
     `
     Would you like to select players from ${QUERY[QUERY.site]}'s, ${QUERY.sport} slate? If not, select a different site and sport.
     `
+  }
+  getRosterList(rosters){
+    const app = document.getElementById("App");
+    const controls = document.getElementById("controls");
+    controls.innerHTML = `
+    <div class="roster-controls">
+      <button class="roster-controls__btn">download rosters</button class="roster-controls__btn">
+    </div>    
+    `;
+    app.innerHTML = `>
+      <div id="Rosters" class="rosters">
+      </div>        
+    `;
+    for(let i=0; i<rosters.length; i++){
+      let newRoster = new Roster(i, "Rosters", rosters); 
+      newRoster.temp();
+      
+    }
   }
   async PlayerSelect(games){ 
     const controls = document.getElementById("controls");
@@ -94,9 +113,41 @@ export class App{
     // get rosters btn
     const getRosters = document.getElementById("get-rosters");
     getRosters.addEventListener("click", function(){
-      const rosters = buildFilteredRosters(SELECTED_PLAYERS.pool, "optimized")
-      console.log(rosters);
+      let RosterPool = []; 
+      SELECTED_PLAYERS.pool.forEach(player => {
+        if(player !== -1){
+          RosterPool.push(FILTERED_PLAYERS.pool[player]);
+        }
+      })
+      const rosters = buildFilteredRosters(RosterPool, true);
+      SELECTED_PLAYERS.rosters = rosters;
+      // ADD ROSTERS
+      const app = document.getElementById("App");
+      const controls = document.getElementById("controls");
+      controls.innerHTML = `
+      <div class="roster-controls">
+        <button class="roster-controls__btn">download rosters</button class="roster-controls__btn">
+      </div>    
+      `;
+      app.innerHTML = `
+        <div id="Rosters" class="rosters">
+        </div>        
+      `;
+      for(let i=0; i<rosters.length; i++){
+        let newRoster = new Roster(i, "Rosters", rosters[i]); 
+        newRoster.temp();
+      }
+      // add controls event
+      let FinalRosters = []
+      controls.addEventListener("click", function(){
+        const SelectedRosters = document.querySelectorAll(".selected-save");
+        console.log(SelectedRosters)
+        for(let i=0; i<SelectedRosters.length; i++){
+         FinalRosters.push(Number(SelectedRosters[i].id)); 
+        }
+      })
     })
+   
   }
   async GameSelect(query){ 
     const app = document.getElementById("App");
@@ -115,4 +166,5 @@ export class App{
       players(GAMES.list);
     })
   }
+
 }

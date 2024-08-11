@@ -40,4 +40,27 @@ export const SCHEDULE = {
 }
 export const GAMES = {
   list: []
+};
+export const ROSTER_DATA = {
+  cart: 0,
+  schedule: null,
+  salaryCap: 0,
+  rosterOptions: [],
+  players: [],
+  listQB: [],
+  listRB: [],
+  listWR: [],
+  listTE: [],
+  listFLEX: [],
+  listDST: [],
+  playerCount:{
+    QB:0,
+    RB:0,
+    WR:0,
+    TE:0,
+    DST:0
+  }
+};
+export const FINAL_ROSTERS = {
+  rosters: []
 }

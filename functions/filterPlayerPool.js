@@ -1,5 +1,6 @@
-import { GLOBALS } from "../store/store.js";
-import { qbWrStacks } from "./stack-loop.js";
+import { ROSTER_DATA } from "../store.js";
+import { qbWrStacksOptimized } from "./stack-loop.js";
+import { configRoster } from "./rosterConfig.js";
 
 /**
  *  AvgPointsPerGame: "32",
@@ -22,8 +23,8 @@ let rbStacks = [];
 let wrStacksThree = [];
 
 // +++
-function buildRbStacks(rb){
-  for(let i=0; i<rb.length; i++){
+function buildRbStacks(r){
+  for(let i=0; i<r.length; i++){
     for(let j=i+1; j<r.length; j++){
       rbStacks.push({rb1: r[i], rb2: r[j]});
     }
@@ -35,7 +36,7 @@ function buildQbWrStacks(qb, wr){
   for(let i=0; i<qb.length; i++){
     for(let j=0; j<wr.length; j++){
       if(qb[i]["TeamAbbrev"]==wr[j]["TeamAbbrev"]){
-        qwStacks.push({ q:qb[i], w:w[j]});
+        qwStacks.push({ q:qb[i], w:wr[j]});
       } 
     }
   }
@@ -62,14 +63,15 @@ function buildWrPairsThree(list){
  * if true build rosters using qbWrStacks
  * if flase build rosters using three WR 
  */
-export function buildFilteredRosters(stacked){
-  buildRbStacks(GLOBALS.listRB);
-  buildQbWrStacks(GLOBALS.listQB, GLOBALS.listWR);
+export function buildFilteredRosters(pool, stacked){
+  // configeRoster(playerPool, FlexOptions ["POSITION", "POSITION"])
+  configRoster(pool, ["WR"]);
+  buildRbStacks(ROSTER_DATA.listRB);
+  buildQbWrStacks(ROSTER_DATA.listQB, ROSTER_DATA.listWR);
   //buildWrPairsThree(w)
-  buildWrPairsTwo(GLOBALS.listWR, qwStacks);
-  let rosters = qbWrStacks(qwStacks, rbStacks, GLOBALS.listWR, GLOBALS.listTE, GLOBALS.listFLEX, GLOBALS.listDST); 
-  console.log(rosters);
-  //return rosters;
+  //buildWrPairsTwo(ROSTER_DATA.listWR, qwStacks);
+  let rosters = qbWrStacksOptimized(qwStacks, rbStacks, ROSTER_DATA.listWR, ROSTER_DATA.listTE, ROSTER_DATA.listDST); 
+  return rosters;
 }
 //buildFilteredRosters();
 // buildPositionLists(filteredPlayerPool); 

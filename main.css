@@ -289,13 +289,21 @@ font-family: sans-serif;
   width: 98%;
   margin: 2% auto;
 }
-
+.roster-controls__btn{
+  color: rgb(222, 255, 222);
+  margin: 0 auto;
+  background: #049d00;
+  border: #049d00;
+  padding: 5px;
+  border-radius: 3px;
+}
 .roster-heading{
   display: flex;
   background: #cbcbcba6;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
+  padding: 0px 8px;
+  height: 25px;
 }
 .roster-id{
   font-size: small;
@@ -332,6 +340,12 @@ font-family: sans-serif;
 .selected{
   background: #d2f9d1;
   color: #373737;
+}
+.selected-save{
+  background: #049d00;
+  color: #ffffff;
+  padding: 3px;
+  border-radius: 3px;
 }
 .schedule{
   padding: 10px;
