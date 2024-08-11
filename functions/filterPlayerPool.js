@@ -3,7 +3,8 @@ import { qbWrStacksOptimized } from "./stack-loop.js";
 import { configRoster } from "./rosterConfig.js";
 
 /**
- *  AvgPointsPerGame: "32",
+ *  {
+    AvgPointsPerGame: "32",
     GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
     TeamAbbrev: "SF",
     createdAt: "0000-00-00 00:00:00",

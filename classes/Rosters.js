@@ -1,3 +1,4 @@
+
 export class Roster{
   #roster
   #index
@@ -15,14 +16,13 @@ export class Roster{
     roster.innerHTML = `
       <div class="roster-heading">
         <p class="roster-id">roster-${this.#index}</p>       
-        <p id="save${this.#index}" class="roster__save-text">save</p>
+        <p id="${this.#index}" class="roster__save-text">save</p>
       </div>     
     `;
     parent.appendChild(roster);
 
     // Append players to roster
     const ParentRoster = document.getElementById(`roster${this.#index}`);
-    console.log(this.#roster)
     for(const key in this.#roster){ 
       if(key !== "salary"){
       const RosterPlayer = document.createElement("div");
@@ -42,7 +42,7 @@ export class Roster{
     this.register();
   }
   register(){
-    const save = document.getElementById(`save${this.#index}`);
+    const save = document.getElementById(`${this.#index}`);
     save.addEventListener("click", function(){
       save.classList.toggle("selected-save");
     })

@@ -9,6 +9,8 @@ import { PlayerList } from "./classes/PlayerList.js";
 import { SelectedPlayers } from "./classes/SelectedPlayers.js";
 import { buildFilteredRosters } from "./functions/filterPlayerPool.js";
 import { Roster } from "./classes/Rosters.js";
+import { csvStringsArray } from "./functions/csvStringsArray.js";
+import { Filexy } from "../filexy-js/filexy.csv.js";
 export class App{
   // app element ID: from main
   #id 
@@ -139,13 +141,25 @@ export class App{
       }
       // add controls event
       let FinalRosters = []
+      let RosterIDs = []
       controls.addEventListener("click", function(){
         const SelectedRosters = document.querySelectorAll(".selected-save");
-        console.log(SelectedRosters)
         for(let i=0; i<SelectedRosters.length; i++){
-         FinalRosters.push(Number(SelectedRosters[i].id)); 
+         RosterIDs.push(Number(SelectedRosters[i]["id"])); 
         }
+        for(let i=0; i<RosterIDs.length; i++){
+          FinalRosters.push(SELECTED_PLAYERS.rosters[RosterIDs[i]]);
+        }
+        let str = csvStringsArray(FinalRosters, "qb");
+        let filexy = new Filexy(null, null, str);
+        let url = filexy.csv();
+        let date = Date.now()
+        controls.innerHTML = ``;
+        app.innerHTML=`
+        <a class="download-button" href="${url}" download="sportxy${date}.csv">download file</a>
+        `
       })
+
     })
    
   }

@@ -1,7 +1,7 @@
 import { App as Application } from "./App.js";
 import { LOGO, SITES, SPORTS, QUERY } from "./store.js";
 import { SearchSubmit } from "./classes/SearchSubmit.js";
-
+import { csvStringsArray } from "./functions/csvStringsArray.js";
 
 
 // LOGO
@@ -86,3 +86,36 @@ SPORTS.forEach(element => {
 // APP
 export const App = new Application("App");
 App.start();
+// const arr = [
+//   {
+//     AvgPointsPerGame: "32",
+//     GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
+//     TeamAbbrev: "SF",
+//     createdAt: "0000-00-00 00:00:00",
+//     id: "1",
+//     name: "Christian McCaffrey",
+//     nameID: "Christian McCaffrey (30042020)",
+//     playerID: "30042020",
+//     position: "RB",
+//     rosterPos: "RB/FLEX",
+//     salary: "9400",
+//     updatedAt: "0000-00-00 00:00:00"
+//   },
+//   {
+//     AvgPointsPerGame: "32",
+//     GameInfo: "DAL@SF 10/08/2023 08:20PM ET",
+//     TeamAbbrev: "SF",
+//     createdAt: "0000-00-00 00:00:00",
+//     id: "2",
+//     name: "Deebo Samuel",
+//     nameID: "Deebo Samuel (30042020)",
+//     playerID: "30042020",
+//     position: "RB",
+//     rosterPos: "RB/FLEX",
+//     salary: "9400",
+//     updatedAt: "0000-00-00 00:00:00"
+//   },
+
+// ]
+// let str = csvStringsArray(arr)
+// console.log(str);
