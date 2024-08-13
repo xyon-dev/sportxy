@@ -58,6 +58,17 @@ body{
 #close{
   cursor: pointer;
 }
+#playerCount{
+  display: flex;
+  width: 210px;
+}
+#player-count{
+  display: flex;
+  width: 500px;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  font-size: 25px;
+}
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
@@ -275,6 +286,12 @@ font-family: sans-serif;
 .players{
   width: 100%;
   display: flex;
+}
+.position-counter{
+  display:flex;
+  width:250px;
+  justify-content:flex-start;
+  cursor: pointer;
 }
 .roster-controls{
   display: flex;

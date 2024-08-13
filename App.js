@@ -11,6 +11,7 @@ import { buildFilteredRosters } from "./functions/filterPlayerPool.js";
 import { Roster } from "./classes/Rosters.js";
 import { csvStringsArray } from "./functions/csvStringsArray.js";
 import { Filexy } from "../filexy-js/filexy.csv.js";
+import { NflPositionCounter } from "./classes/NflPositionCounter.js";
 export class App{
   // app element ID: from main
   #id 
@@ -47,11 +48,15 @@ export class App{
   }
   async PlayerSelect(games){ 
     const controls = document.getElementById("controls");
+    const nflCounter = new NflPositionCounter("PositionCounter");
     controls.innerHTML = ` 
       <div class="player-controls">
+        <div id="PositionCounter" class="position-counter">
+        </div>
         <button id="confirm-selections" class="player-control">view and/or confirm selections</button>
-        <button id="clear-players" class="player-control">clear selections</button>
+        <button id="clear-players" class="player-control">clear</button>
       </div>`;
+    nflCounter.temp();
     const pool = await playerPool(QUERY.site, games, "f");
     FILTERED_PLAYERS.pool = pool;
     const app = document.getElementById("App");
