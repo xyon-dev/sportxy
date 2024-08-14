@@ -1,4 +1,4 @@
-import { QUERY, SELECTED_PLAYERS, FINAL_ROSTERS } from "./store.js";
+import { QUERY, SELECTED_PLAYERS, FINAL_ROSTERS, ROSTER_DATA } from "./store.js";
 // import { SearchSubmit } from "./classes/SearchSubmit.js";
 import { getSchedule } from "./api/getSchedule.js";
 import { playerPool } from "./api/player-pool.js";
@@ -63,7 +63,12 @@ export class App{
     app.innerHTML = `
     <div class="players">
       <div id="player-pool" class="player-pool hide">
-        <div class="close-icon"><p id="close" class="close-icon__text">back</p></div>
+        <div class="close-icon">
+            <p id="roster-error" class="hidden">
+              Player minimum not met: QB:1, RB:2, WR:4, TE:1,0 DST:1
+            </p>
+            <p id="close" class="close-icon__text">back</p>
+          </div>
           <ul id="player-pool-list" class="player-pool__list">
           </ul>
         <div class="btn-container">
@@ -95,9 +100,14 @@ export class App{
          });  
         selected.classList.toggle("hide");
       }else{
+        const rosterError = document.getElementById("roster-error");
+        if(!rosterError.classList.contains("hidden")){
+          rosterError.classList.add("hidden");
+        }
         selected.classList.toggle("hide");
         const list = document.getElementById("player-pool-list");
         list.innerHTML=  ``;
+       
       }
     });
     // close button event
@@ -107,7 +117,12 @@ export class App{
       selected.classList.toggle("hide");
       const list = document.getElementById("player-pool-list");
       list.innerHTML=``;
+      const rosterError = document.getElementById("roster-error");
+      if(!rosterError.classList.contains("hidden")){
+        rosterError.classList.add("hidden");
+      }
     })
+
     // clear selections
     const clear = document.getElementById("clear-players");
     clear.addEventListener("click", function(){
@@ -120,6 +135,17 @@ export class App{
     // get rosters btn
     const getRosters = document.getElementById("get-rosters");
     getRosters.addEventListener("click", function(){
+      if(ROSTER_DATA.playerCount.QB < 1 || 
+        ROSTER_DATA.playerCount.RB < 3 ||
+        ROSTER_DATA.playerCount.WR < 4 ||
+        ROSTER_DATA.playerCount.TE < 1 ||
+        ROSTER_DATA.playerCount.DST < 1 
+      ){
+        const rosterError = document.getElementById("roster-error");
+        if(rosterError.classList.contains("hidden")){
+          rosterError.classList.toggle("hidden");
+        }
+      }else{
       let RosterPool = []; 
       SELECTED_PLAYERS.pool.forEach(player => {
         if(player !== -1){
@@ -164,9 +190,8 @@ export class App{
         <a class="download-button" href="${url}" download="sportxy${date}.csv">download file</a>
         `
       })
-
+      }
     })
-   
   }
   async GameSelect(query){ 
     const app = document.getElementById("App");

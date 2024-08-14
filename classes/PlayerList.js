@@ -1,5 +1,6 @@
 import { SELECTED_PLAYERS } from "../store.js";
 import { SelectedPlayers } from "./SelectedPlayers.js";
+import { ROSTER_DATA } from "../store.js";
 
 export class PlayerList {
   #parentID
@@ -32,30 +33,22 @@ export class PlayerList {
       filteredPlayerIndex++;
     });
   }
-  // register(playerID, element){ 
-  //   const player = document.getElementById(playerID);
-  //   player.addEventListener("click", function(){
-  //     const index = SELECTED_PLAYERS.pool.indexOf(element.ID);
-  //     player.classList.toggle("selected");
-  //     if(index < 0){ 
-  //       SELECTED_PLAYERS.pool.push(element.ID);
-  //       console.log(SELECTED_PLAYERS.pool);
-  //     }else{
-  //       SELECTED_PLAYERS.pool[index] = -1;
-  //       console.log(SELECTED_PLAYERS.pool)
-  //     }
-  //   })
-  // }
+
   register(playerID, element){ 
     const player = document.getElementById(playerID);
     const playerIndex = playerID
     player.addEventListener("click", function(){
       const index = SELECTED_PLAYERS.pool.indexOf(playerIndex);
       player.classList.toggle("selected");
+      const position = document.getElementById(element.position);
       if(index < 0){ 
         SELECTED_PLAYERS.pool.push(playerIndex);
+        ROSTER_DATA.playerCount[element.position] += 1
+        position.innerHTML = ROSTER_DATA.playerCount[element.position];
       }else{
         SELECTED_PLAYERS.pool[index] = -1;
+        ROSTER_DATA.playerCount[element.position] -= 1
+        position.innerHTML = ROSTER_DATA.playerCount[element.position];
       }
     })
   }

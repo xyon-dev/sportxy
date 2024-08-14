@@ -1,15 +1,18 @@
+import { ROSTER_DATA } from "../store.js";
+
 export class NflPositionCounter{
   #parentID
   #count
   constructor(parentID){
     this.#parentID = parentID;
+    this.rosterData = ROSTER_DATA.playerCount;
     this.#count = {
       qb: 0,
       rb: 0,
       wr: 0,
       te: 0,
       dst: 0,
-    }
+    };
   }
   set count(obj){
     this.#count[obj.pos] = obj.count; 
@@ -30,8 +33,12 @@ export class NflPositionCounter{
     const parent = document.getElementById(`${this.#parentID}`)
     parent.appendChild(container);
   }
-  register(){
-    const qb = getElementById("QB");
+  refresh(pos, action){
+    switch(pos){
+      case "QB":
+        const qb = getElementById("QB");
+        action == "add" ? qb.innerHTML = `QB:${this.count.qb++}` : qb.innerHTML = `QB:${this.count.qb--}`
+    }
     const rb = getElementById("RB");
     const wr = getElementById("WR");
     const te = getElementById("TE");

@@ -48,10 +48,3 @@ export class Roster{
     })
   }
 }
-{/* <div class="roster-heading">
-<p class="roster-id">${roster}-${index}</p>
-<label for="${roster}-${index}" class="roster__save">
-  <input id="${roster}-${index}" type="checkbox" class="roster__save-input" name="${roster}-${index}" value="${roster}-${index}">
-  <p class="roster__save-text">save</p>
-</label>
-</div>   */}

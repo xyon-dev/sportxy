@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header bebas-neue-header">
-    <p class="logo">
+    <p id="LOGO" class="logo" onclick="location.reload()">
         <span id="logo-title" class="logo__text--name"></span>
         <span id="logo-subject" class="logo__text--subject"></span>
     </p>
@@ -27,5 +27,11 @@
         
       </div>
     <script src="  main.js" type="module"></script>
+    <script>
+      function refresh(){
+        location.reload();
+      }
+
+    </script>
   </body>
   </html>
